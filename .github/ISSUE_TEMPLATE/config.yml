@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Support & Questions
-    url: mailto:support@infradocs.io
+    url: mailto:support@nexuframe.com
     about: For support questions, email us directly
   - name: Documentation
     url: https://github.com/NexuFrame/infradocs/tree/main/docs
