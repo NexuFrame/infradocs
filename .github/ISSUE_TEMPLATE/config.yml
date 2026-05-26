@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support & Questions
+    url: mailto:support@infradocs.io
+    about: For support questions, email us directly
+  - name: Documentation
+    url: https://github.com/NexuFrame/build-the-infradocs-generator-python-cli/tree/main/docs
+    about: Check our documentation before opening an issue
