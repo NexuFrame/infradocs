@@ -13,4 +13,3 @@ All notable changes to InfraDocs Generator will be documented here.
 - Sample data: 3 sites, 12 devices, 8 VLANs, 5 subnets, 4 printers, 5 vendors, 3 circuits
 - 4 pytest test files
 - Full documentation in docs/
-- Sales assets (Gumroad listing, email sequence, social copy)
