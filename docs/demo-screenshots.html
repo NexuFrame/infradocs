@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InfraDocs — Demo Screenshots</title>
+<style>
+:root {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --surface2: #16213e;
+  --accent: #4f8ef7;
+  --accent2: #00d4aa;
+  --text: #e0e0e0;
+  --muted: #8892a4;
+  --border: #2a2a4a;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --danger: #f44336;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.hero p { color: var(--muted); font-size: 1.1rem; }
+
+/* Screenshot Browser Chrome */
+.browser-mockup {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.browser-header {
+  background: var(--surface2);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+.browser-dot.r { background: #ff5f56; }
+.browser-dot.y { background: #ffbd2e; }
+.browser-dot.g { background: #27c93f; }
+.browser-url {
+  flex: 1;
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  font-family: monospace;
+}
+.browser-content {
+  padding: 0;
+  min-height: 400px;
+}
+
+/* Section Headers */
+.section-title {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-desc { color: var(--muted); margin-bottom: 1rem; }
+
+/* Mini Site Render */
+.mini-site { display: flex; min-height: 380px; }
+.mini-nav {
+  width: 180px;
+  background: var(--surface2);
+  padding: 1rem 0.75rem;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.mini-nav .logo { font-size: 1.1rem; font-weight: bold; color: var(--accent); margin-bottom: 1rem; padding: 0 0.5rem; }
+.mini-nav a {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+.mini-nav a:hover, .mini-nav a.active { background: var(--accent); color: #fff; }
+.mini-main { flex: 1; padding: 1.5rem; overflow: hidden; }
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.summary-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+.summary-card .icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+.summary-card .value { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.summary-card .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; }
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface2);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+.data-table th {
+  background: var(--border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.data-table td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.data-table tr:hover td { background: rgba(79,142,247,0.05); }
+.mono { font-family: 'SF Mono', Monaco, monospace; font-size: 0.8rem; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+.badge-success { background: rgba(76,175,80,0.2); color: #4caf50; }
+.badge-warning { background: rgba(255,152,0,0.2); color: #ff9800; }
+.badge-danger { background: rgba(244,67,54,0.2); color: #f44336; }
+
+/* Feature Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.feature-card h3 { color: var(--accent); font-size: 1rem; margin-bottom: 0.5rem; }
+.feature-card p { color: var(--muted); font-size: 0.9rem; }
+.feature-card .emoji { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+
+/* YAML Preview */
+.code-block {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.code-block .k { color: #ff7b72; } /* key */
+.code-block .s { color: #a5d6ff; } /* string */
+.code-block .n { color: #79c0ff; } /* number */
+.code-block .c { color: #8b949e; } /* comment */
+
+/* Print preview */
+.print-notice {
+  background: rgba(79,142,247,0.1);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.print-notice .icon { font-size: 1.5rem; }
+
+/* Two column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .features { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .mini-nav { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>InfraDocs Generator</h1>
+  <p>Turn YAML data into beautiful static IT documentation websites</p>
+</div>
+
+<!-- ====== SCREENSHOT 1: DASHBOARD ====== -->
+<h2 class="section-title">📊 Dashboard Overview</h2>
+<p class="section-desc">The generated homepage shows a complete infrastructure summary at a glance — sites, devices, VLANs, subnets, printers, vendors, and circuits.</p>
+
+<div class="browser-mockup">
+  <div class="browser-header">
+    <span class="browser-dot r"></span>
+    <span class="browser-dot y"></span>
+    <span class="browser-dot g"></span>
+    <span class="browser-url">file:///it-docs/index.html</span>
+  </div>
+  <div class="browser-content">
+    <div class="mini-site">
+      <div class="mini-nav">
+        <div class="logo">InfraDocs</div>
+        <a href="#" class="active">Home</a>
+        <a href="#">Sites</a>
+        <a href="#">Devices</a>
+        <a href="#">VLANs</a>
+        <a href="#">Subnets</a>
+        <a href="#">Printers</a>
+        <a href="#">Vendors</a>
+        <a href="#">Circuits</a>
+        <a href="#">Change Log</a>
+        <a href="#">Emergency</a>
+      </div>
+      <div class="mini-main">
+        <h1 style="color:var(--accent);font-size:1.3rem;margin-bottom:0.3rem;">Acme Corp IT Infrastructure</h1>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1rem;">Network and infrastructure documentation</p>
+
+        <div style="margin-bottom:1rem;">
+          <input type="text" placeholder="🔍 Search infrastructure..." style="width:100%;padding:0.5rem 1rem;background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:0.85rem;">
+        </div>
+
+        <h2 style="font-size:1rem;margin:1rem 0 0.5rem;">Infrastructure Overview</h2>
+        <div class="card-grid">
+          <div class="summary-card">
+            <div class="icon">🏢</div>
+            <div class="value">3</div>
+            <div class="label">Sites</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">🖥️</div>
+            <div class="value">12</div>
+            <div class="label">Devices</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">🌐</div>
+            <div class="value">8</div>
+            <div class="label">VLANs</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">📊</div>
+            <div class="value">5</div>
+            <div class="label">Subnets</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">🖨️</div>
+            <div class="value">4</div>
+            <div class="label">Printers</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">🏷️</div>
+            <div class="value">5</div>
+            <div class="label">Vendors</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">🔌</div>
+            <div class="value">3</div>
+            <div class="label">Circuits</div>
+          </div>
+          <div class="summary-card">
+            <div class="icon">📝</div>
+            <div class="value">0</div>
+            <div class="label">Changes</div>
+          </div>
+        </div>
+
+        <h2 style="font-size:1rem;margin:1.5rem 0 0.5rem;">Quick Links</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;">
+          <a href="#" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;text-decoration:none;color:var(--text);font-size:0.85rem;">🏢 View Sites</a>
+          <a href="#" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;text-decoration:none;color:var(--text);font-size:0.85rem;">🖥️ View Devices</a>
+          <a href="#" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;text-decoration:none;color:var(--text);font-size:0.85rem;">🌐 View VLANs</a>
+          <a href="#" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;text-decoration:none;color:var(--text);font-size:0.85rem;">📊 View Subnets</a>
+          <a href="#" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;text-decoration:none;color:var(--text);font-size:0.85rem;">🖨️ View Printers</a>
+          <a href="#" style="background:rgba(244,67,54,0.1);border:1px solid var(--danger);border-radius:8px;padding:0.75rem;text-decoration:none;color:var(--danger);font-size:0.85rem;">🚨 Emergency Procedures</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SCREENSHOT 2: DEVICES TABLE ====== -->
+<h2 class="section-title">🖥️ Devices Page</h2>
+<p class="section-desc">Complete device inventory with IP addresses, MAC addresses, sites, roles, OS, and locations. Sortable tables with status badges.</p>
+
+<div class="browser-mockup">
+  <div class="browser-header">
+    <span class="browser-dot r"></span>
+    <span class="browser-dot y"></span>
+    <span class="browser-dot g"></span>
+    <span class="browser-url">file:///it-docs/devices.html</span>
+  </div>
+  <div class="browser-content">
+    <div class="mini-site">
+      <div class="mini-nav">
+        <div class="logo">InfraDocs</div>
+        <a href="#">Home</a>
+        <a href="#">Sites</a>
+        <a href="#" class="active">Devices</a>
+        <a href="#">VLANs</a>
+        <a href="#">Subnets</a>
+        <a href="#">Printers</a>
+        <a href="#">Vendors</a>
+        <a href="#">Circuits</a>
+      </div>
+      <div class="mini-main">
+        <h1 style="color:var(--accent);font-size:1.3rem;margin-bottom:0.3rem;">Devices</h1>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1rem;">Network devices, servers, and endpoints</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Hostname</th><th>Type</th><th>IP Address</th><th>MAC Address</th><th>Site</th><th>Role</th><th>OS</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>sw-hq-core</strong></td>
+              <td>core-switch</td>
+              <td class="mono">192.168.10.1</td>
+              <td class="mono">aa:bb:cc:dd:ee:01</td>
+              <td>hq</td>
+              <td>core-switch</td>
+              <td>Cisco IOS 15.2</td>
+              <td><span class="badge badge-success">online</span></td>
+            </tr>
+            <tr>
+              <td><strong>srv-hq-dc1</strong></td>
+              <td>server</td>
+              <td class="mono">192.168.10.10</td>
+              <td class="mono">aa:bb:cc:dd:ee:03</td>
+              <td>hq</td>
+              <td>domain-controller</td>
+              <td>Windows Server 2022</td>
+              <td><span class="badge badge-success">online</span></td>
+            </tr>
+            <tr>
+              <td><strong>rtr-branch1</strong></td>
+              <td>router</td>
+              <td class="mono">10.1.1.1</td>
+              <td class="mono">aa:bb:cc:dd:ee:05</td>
+              <td>branch1</td>
+              <td>router</td>
+              <td>Cisco IOS-XE 17.3</td>
+              <td><span class="badge badge-success">online</span></td>
+            </tr>
+            <tr>
+              <td><strong>wks-hq-001</strong></td>
+              <td>workstation</td>
+              <td class="mono">192.168.20.101</td>
+              <td class="mono">aa:bb:cc:dd:ee:09</td>
+              <td>hq</td>
+              <td>workstation</td>
+              <td>Windows 11 Pro</td>
+              <td><span class="badge badge-success">online</span></td>
+            </tr>
+            <tr>
+              <td><strong>cam-wh-01</strong></td>
+              <td>ip-camera</td>
+              <td class="mono">172.16.50.1</td>
+              <td class="mono">aa:bb:cc:dd:ee:12</td>
+              <td>warehouse</td>
+              <td>ip-camera</td>
+              <td>Hikvision firmware</td>
+              <td><span class="badge badge-warning">unknown</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem;">
+          <h3 style="font-size:1rem;color:var(--accent);margin-bottom:0.5rem;">sw-hq-core</h3>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;font-size:0.8rem;">
+            <div><span style="color:var(--muted)">ID:</span> <span class="mono">sw-hq-core</span></div>
+            <div><span style="color:var(--muted)">IP:</span> <span class="mono">192.168.10.1</span></div>
+            <div><span style="color:var(--muted)">Site:</span> hq</div>
+            <div><span style="color:var(--muted)">Status:</span> <span class="badge badge-success">online</span></div>
+            <div><span style="color:var(--muted)">Role:</span> core-switch</div>
+            <div><span style="color:var(--muted)">OS:</span> Cisco IOS 15.2</div>
+            <div><span style="color:var(--muted)">Location:</span> Server Room Rack A</div>
+            <div><span style="color:var(--muted)">VLANs:</span> <span class="badge" style="background:var(--border);">1</span> <span class="badge" style="background:var(--border);">10</span> <span class="badge" style="background:var(--border);">20</span></div>
+          </div>
+          <p style="margin-top:0.5rem;color:var(--muted);font-size:0.8rem;">Primary core switch, HSRP active</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SCREENSHOT 3: VLANs & SUBNETS ====== -->
+<h2 class="section-title">🌐 VLANs & 📊 Subnets</h2>
+<p class="section-desc">Network segmentation at a glance. VLAN IDs, subnets, gateways, and which devices are on each segment.</p>
+
+<div class="two-col">
+  <div class="browser-mockup">
+    <div class="browser-header">
+      <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
+      <span class="browser-url">vlans.html</span>
+    </div>
+    <div class="browser-content" style="padding:1rem;">
+      <h3 style="color:var(--accent);font-size:1rem;margin-bottom:0.5rem;">VLANs</h3>
+      <table class="data-table" style="font-size:0.75rem;">
+        <thead><tr><th>ID</th><th>Name</th><th>Subnet</th><th>Gateway</th></tr></thead>
+        <tbody>
+          <tr><td class="mono"><strong>1</strong></td><td>Management</td><td class="mono">192.168.1.0/24</td><td class="mono">192.168.1.1</td></tr>
+          <tr><td class="mono"><strong>10</strong></td><td>Servers</td><td class="mono">192.168.10.0/24</td><td class="mono">192.168.10.1</td></tr>
+          <tr><td class="mono"><strong>20</strong></td><td>Workstations</td><td class="mono">192.168.20.0/24</td><td class="mono">192.168.20.1</td></tr>
+          <tr><td class="mono"><strong>30</strong></td><td>Printers</td><td class="mono">192.168.30.0/24</td><td class="mono">192.168.30.1</td></tr>
+          <tr><td class="mono"><strong>40</strong></td><td>Guest WiFi</td><td class="mono">192.168.40.0/24</td><td class="mono">192.168.40.1</td></tr>
+          <tr><td class="mono"><strong>50</strong></td><td>Security Cameras</td><td class="mono">192.168.50.0/24</td><td class="mono">192.168.50.1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="browser-mockup">
+    <div class="browser-header">
+      <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
+      <span class="browser-url">subnets.html</span>
+    </div>
+    <div class="browser-content" style="padding:1rem;">
+      <h3 style="color:var(--accent);font-size:1rem;margin-bottom:0.5rem;">Subnets</h3>
+      <table class="data-table" style="font-size:0.75rem;">
+        <thead><tr><th>Name</th><th>CIDR</th><th>Gateway</th><th>VLAN</th><th>Site</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Management Network</strong></td><td class="mono">192.168.1.0/24</td><td class="mono">192.168.1.1</td><td>1</td><td>hq</td></tr>
+          <tr><td><strong>Server Farm</strong></td><td class="mono">192.168.10.0/24</td><td class="mono">192.168.10.1</td><td>10</td><td>hq</td></tr>
+          <tr><td><strong>Workstations</strong></td><td class="mono">192.168.20.0/24</td><td class="mono">192.168.20.1</td><td>20</td><td>hq</td></tr>
+          <tr><td><strong>Branch Office LAN</strong></td><td class="mono">10.1.1.0/24</td><td class="mono">10.1.1.1</td><td>20</td><td>branch1</td></tr>
+          <tr><td><strong>Warehouse Network</strong></td><td class="mono">172.16.0.0/24</td><td class="mono">172.16.0.1</td><td>10</td><td>warehouse</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SCREENSHOT 4: CIRCUITS & VENDORS ====== -->
+<h2 class="section-title">🔌 Circuits & 🏷️ Vendors</h2>
+<p class="section-desc">Track ISP circuits, bandwidth, costs, and vendor contacts with contract expiry dates.</p>
+
+<div class="two-col">
+  <div class="browser-mockup">
+    <div class="browser-header">
+      <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
+      <span class="browser-url">circuits.html</span>
+    </div>
+    <div class="browser-content" style="padding:1rem;">
+      <h3 style="color:var(--accent);font-size:1rem;margin-bottom:0.5rem;">Circuits</h3>
+      <table class="data-table" style="font-size:0.75rem;">
+        <thead><tr><th>Name</th><th>Provider</th><th>Type</th><th>Bandwidth</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Primary Fiber WAN</strong></td>
+            <td>Acme ISP</td>
+            <td>Fiber</td>
+            <td>1 Gbps symmetric</td>
+            <td>$450/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Backup Cable WAN</strong></td>
+            <td>CableLink</td>
+            <td>Cable</td>
+            <td>100/20 Mbps</td>
+            <td>$120/mo</td>
+          </tr>
+          <tr>
+            <td><strong>Out-of-Band LTE</strong></td>
+            <td>MobileCo</td>
+            <td>LTE</td>
+            <td>50/10 Mbps</td>
+            <td>$95/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="browser-mockup">
+    <div class="browser-header">
+      <span class="browser-dot r"></span><span class="browser-dot y"></span><span class="browser-dot g"></span>
+      <span class="browser-url">vendors.html</span>
+    </div>
+    <div class="browser-content" style="padding:1rem;">
+      <h3 style="color:var(--accent);font-size:1rem;margin-bottom:0.5rem;">Vendors</h3>
+      <table class="data-table" style="font-size:0.75rem;">
+        <thead><tr><th>Name</th><th>Account Rep</th><th>Phone</th><th>Contract Expires</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Acme ISP</strong></td><td>Sarah Connor</td><td>1-800-555-0199</td><td>2027-03-31</td></tr>
+          <tr><td><strong>TechHardware</strong></td><td>Mike Ross</td><td>555-0150</td><td>2026-12-31</td></tr>
+          <tr><td><strong>CloudSoft</strong></td><td>Jessica Pearson</td><td>1-888-555-0177</td><td>2027-01-15</td></tr>
+          <tr><td><strong>SecureIT</strong></td><td>Harvey Specter</td><td>555-0166</td><td>2026-09-30</td></tr>
+          <tr><td><strong>VoicePlus</strong></td><td>Louis Litt</td><td>1-877-555-0188</td><td>2026-11-30</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SCREENSHOT 5: INPUT DATA ====== -->
+<h2 class="section-title">📝 Simple YAML Input</h2>
+<p class="section-desc">Just write YAML files. No databases, no complex setup. The generator does the rest.</p>
+
+<div class="two-col">
+  <div>
+    <h3 style="color:var(--accent);font-size:0.95rem;margin-bottom:0.5rem;">sites.yaml</h3>
+    <div class="code-block">
+<div class="c"># Physical sites/locations</div>
+- <span class="k">id</span>: <span class="s">hq</span>
+  <span class="k">name</span>: <span class="s">"Headquarters"</span>
+  <span class="k">location</span>: <span class="s">"123 Main St, Anytown, US"</span>
+  <span class="k">status</span>: <span class="s">active</span>
+- <span class="k">id</span>: <span class="s">branch1</span>
+  <span class="k">name</span>: <span class="s">"Branch Office 1"</span>
+  <span class="k">location</span>: <span class="s">"456 Oak Ave, Othertown, US"</span>
+  <span class="k">status</span>: <span class="s">active</span>
+- <span class="k">id</span>: <span class="s">warehouse</span>
+  <span class="k">name</span>: <span class="s">"Warehouse"</span>
+  <span class="k">location</span>: <span class="s">"789 Industrial Blvd, Anytown, US"</span>
+  <span class="k">status</span>: <span class="s">active</span>
+    </div>
+  </div>
+  <div>
+    <h3 style="color:var(--accent);font-size:0.95rem;margin-bottom:0.5rem;">devices.yaml</h3>
+    <div class="code-block">
+<div class="c"># Network devices</div>
+- <span class="k">id</span>: <span class="s">sw-hq-core</span>
+  <span class="k">name</span>: <span class="s">sw-hq-core</span>
+  <span class="k">type</span>: <span class="s">core-switch</span>
+  <span class="k">ip_address</span>: <span class="s">192.168.10.1</span>
+  <span class="k">mac_address</span>: <span class="s">"aa:bb:cc:dd:ee:01"</span>
+  <span class="k">site_id</span>: <span class="s">hq</span>
+  <span class="k">role</span>: <span class="s">core-switch</span>
+  <span class="k">os</span>: <span class="s">"Cisco IOS 15.2"</span>
+  <span class="k">location</span>: <span class="s">"Server Room Rack A"</span>
+  <span class="k">vlan_ids</span>: [<span class="n">1</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>]
+  <span class="k">status</span>: <span class="s">online</span>
+- <span class="k">id</span>: <span class="s">srv-hq-dc1</span>
+  <span class="k">name</span>: <span class="s">srv-hq-dc1</span>
+  <span class="k">type</span>: <span class="s">server</span>
+  <span class="k">ip_address</span>: <span class="s">192.168.10.10</span>
+  <span class="k">site_id</span>: <span class="s">hq</span>
+  <span class="k">role</span>: <span class="s">domain-controller</span>
+  <span class="k">os</span>: <span class="s">"Windows Server 2022"</span>
+  <span class="k">status</span>: <span class="s">online</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FEATURES ====== -->
+<h2 class="section-title">✨ Key Features</h2>
+<div class="features">
+  <div class="feature-card">
+    <span class="emoji">🔍</span>
+    <h3>Full-Text Search</h3>
+    <p>Instantly search across all devices, IPs, VLANs, and notes. The generated search index makes finding anything fast.</p>
+  </div>
+  <div class="feature-card">
+    <span class="emoji">🌙</span>
+    <h3>Dark Mode Default</h3>
+    <p>Easy on the eyes for late-night troubleshooting. The dark theme is perfect for NOC and datacenter environments.</p>
+  </div>
+  <div class="feature-card">
+    <span class="emoji">📱</span>
+    <h3>Mobile Friendly</h3>
+    <p>Access your docs from your phone in the server room. Responsive design works on any screen size.</p>
+  </div>
+  <div class="feature-card">
+    <span class="emoji">🖨️</span>
+    <h3>Print Ready</h3>
+    <p>Generate PDF-ready documentation for audits, onboarding, or compliance. Clean print CSS included.</p>
+  </div>
+  <div class="feature-card">
+    <span class="emoji">💻</span>
+    <h3>Works Offline</h3>
+    <p>Static HTML files — no server required. Host on any web server, NAS, or open locally.</p>
+  </div>
+  <div class="feature-card">
+    <span class="emoji">✅</span>
+    <h3>Data Validation</h3>
+    <p>Catch errors before they become problems. Validates IP addresses, MAC addresses, CIDR notation, and cross-references.</p>
+  </div>
+</div>
+
+<div class="print-notice">
+  <span class="icon">🖨️</span>
+  <div>
+    <strong>Print-Optimized Output</strong><br>
+    <span style="color:var(--muted);font-size:0.9rem;">The generated site includes print-friendly CSS. When you print (or "Print to PDF"), the navigation hides and the layout optimizes for paper — perfect for compliance documentation or physical runbooks.</span>
+  </div>
+</div>
+
+<footer>
+  <p><strong>InfraDocs Generator</strong> — Static IT infrastructure documentation from YAML/JSON/CSV</p>
+  <p style="margin-top:0.5rem;font-size:0.85rem;">Generated by <a href="https://github.com/NexuFrame/infradocs" style="color:var(--accent);text-decoration:none;">NexuFrame/InfraDocs</a> · Support: <a href="mailto:support@nexuframe.com" style="color:var(--accent);text-decoration:none;">support@nexuframe.com</a></p>
+</footer>
+
+</div>
+</body>
+</html>
