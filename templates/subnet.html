@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ subnet.cidr }} — InfraDocs{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ subnet.cidr }}</h1>
+  <table class="detail-table">
+    <tr><th>CIDR</th><td>{{ subnet.cidr }}</td></tr>
+    <tr><th>Gateway</th><td>{{ subnet.gateway | default('—') }}</td></tr>
+    <tr><th>VLAN</th><td>{{ subnet.vlan | default('—') }}</td></tr>
+    <tr><th>Site</th><td>{{ subnet.site | default('—') }}</td></tr>
+    <tr><th>Notes</th><td>{{ subnet.notes | default('—') }}</td></tr>
+  </table>
+</div>
+{% endblock %}

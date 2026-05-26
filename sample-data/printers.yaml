@@ -1,0 +1,25 @@
+printers:
+  - hostname: prn-hq-finance
+    ip: 192.168.30.10
+    model: HP LaserJet Enterprise M507dn
+    location: Finance Dept
+    queue_name: prn-finance
+    driver_notes: Use HP UPD PCL6 driver
+  - hostname: prn-hq-hr
+    ip: 192.168.30.11
+    model: Brother HL-L9310CDW
+    location: HR Dept
+    queue_name: prn-hr
+    driver_notes: Use Brother Universal driver
+  - hostname: prn-branch1-main
+    ip: 10.1.1.30
+    model: HP LaserJet Pro M404dn
+    location: Branch Office, Main Floor
+    queue_name: prn-branch1
+    driver_notes: Use HP UPD PCL6 driver
+  - hostname: prn-wh-shipping
+    ip: 172.16.30.10
+    model: Zebra ZT411 (label printer)
+    location: Warehouse Shipping Desk
+    queue_name: prn-shipping
+    driver_notes: ZDesigner driver, 4x6 label media

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ vendor.name }} — InfraDocs{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ vendor.name }}</h1>
+  <table class="detail-table">
+    <tr><th>Account Rep</th><td>{{ vendor.account_rep | default('—') }}</td></tr>
+    <tr><th>Support Phone</th><td>{{ vendor.support_phone | default('—') }}</td></tr>
+    <tr><th>Support Email</th><td>{{ vendor.support_email | default('—') }}</td></tr>
+    <tr><th>Contract Expiry</th><td>{{ vendor.contract_expiry | default('—') }}</td></tr>
+    <tr><th>Notes</th><td>{{ vendor.notes | default('—') }}</td></tr>
+  </table>
+</div>
+{% endblock %}
