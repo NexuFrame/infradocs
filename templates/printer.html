@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ printer.hostname }} — InfraDocs{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ printer.hostname }}</h1>
+  <table class="detail-table">
+    <tr><th>IP</th><td>{{ printer.ip }}</td></tr>
+    <tr><th>Model</th><td>{{ printer.model | default('—') }}</td></tr>
+    <tr><th>Location</th><td>{{ printer.location | default('—') }}</td></tr>
+    <tr><th>Queue Name</th><td>{{ printer.queue_name | default('—') }}</td></tr>
+    <tr><th>Driver Notes</th><td>{{ printer.driver_notes | default('—') }}</td></tr>
+  </table>
+</div>
+{% endblock %}

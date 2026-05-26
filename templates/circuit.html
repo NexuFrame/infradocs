@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ circuit.circuit_id }} — InfraDocs{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ circuit.provider }} — {{ circuit.circuit_id }}</h1>
+  <table class="detail-table">
+    <tr><th>Provider</th><td>{{ circuit.provider }}</td></tr>
+    <tr><th>Circuit ID</th><td>{{ circuit.circuit_id }}</td></tr>
+    <tr><th>Bandwidth</th><td>{{ circuit.bandwidth | default('—') }}</td></tr>
+    <tr><th>Type</th><td>{{ circuit.type | default('—') }}</td></tr>
+    <tr><th>Monthly Cost</th><td>{{ circuit.monthly_cost | default('—') }}</td></tr>
+    <tr><th>Support</th><td>{{ circuit.support_contact | default('—') }}</td></tr>
+  </table>
+</div>
+{% endblock %}

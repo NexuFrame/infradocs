@@ -1,0 +1,41 @@
+vlans:
+  - id: 1
+    name: Management
+    subnet: 192.168.1.0/24
+    gateway: 192.168.1.1
+    description: Network management VLAN
+  - id: 10
+    name: Servers
+    subnet: 192.168.10.0/24
+    gateway: 192.168.10.1
+    description: Production servers
+  - id: 20
+    name: Workstations
+    subnet: 192.168.20.0/24
+    gateway: 192.168.20.1
+    description: End-user workstations
+  - id: 30
+    name: Printers
+    subnet: 192.168.30.0/24
+    gateway: 192.168.30.1
+    description: Network printers
+  - id: 40
+    name: Guest WiFi
+    subnet: 192.168.40.0/24
+    gateway: 192.168.40.1
+    description: Isolated guest wireless
+  - id: 50
+    name: Security Cameras
+    subnet: 192.168.50.0/24
+    gateway: 192.168.50.1
+    description: IP camera network, isolated
+  - id: 60
+    name: VoIP
+    subnet: 192.168.60.0/24
+    gateway: 192.168.60.1
+    description: Voice over IP phones
+  - id: 99
+    name: Native
+    subnet: ""
+    gateway: ""
+    description: Untagged/native VLAN

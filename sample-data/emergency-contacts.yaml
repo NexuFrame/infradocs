@@ -1,0 +1,23 @@
+contacts:
+  - name: John Smith
+    role: IT Manager (Primary)
+    phone: "555-0110"
+    email: jsmith@company.example.com
+  - name: Jane Doe
+    role: Network Engineer (Secondary)
+    phone: "555-0111"
+    email: jdoe@company.example.com
+  - name: Acme ISP NOC
+    role: Internet Provider
+    phone: "1-800-555-0199"
+    email: noc@acme-isp.example.com
+
+runbook:
+  - "Check UPS status and power to all rack equipment"
+  - "Verify core switch uptime: ssh admin@192.168.10.1 'show version'"
+  - "Check internet circuit: ping 8.8.8.8 from rtr-hq-core"
+  - "If internet down, call Acme ISP NOC at 1-800-555-0199 with circuit ID ACM-FBR-00123"
+  - "Verify AD/DNS: nslookup company.local 192.168.10.10"
+  - "If DC unreachable, check srv-hq-dc1 console and Windows Event Viewer"
+  - "Check file server: net use \\\\srv-hq-file\\share"
+  - "Escalate to Jane Doe if unresolved after 30 minutes"

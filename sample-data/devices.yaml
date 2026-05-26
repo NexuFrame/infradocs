@@ -1,0 +1,121 @@
+devices:
+  - id: sw-hq-core
+    hostname: sw-hq-core
+    ip: 192.168.10.1
+    mac: "aa:bb:cc:dd:ee:01"
+    site: hq
+    role: core-switch
+    os: Cisco IOS 15.2
+    location: Server Room Rack A
+    vlan_ids: [1, 10, 20, 30, 40]
+    notes: Primary core switch, HSRP active
+  - id: sw-hq-access1
+    hostname: sw-hq-access1
+    ip: 192.168.1.2
+    mac: "aa:bb:cc:dd:ee:02"
+    site: hq
+    role: access-switch
+    os: Cisco IOS 15.2
+    location: Floor 1 IDF
+    vlan_ids: [20, 30]
+    notes: ""
+  - id: srv-hq-dc1
+    hostname: srv-hq-dc1
+    ip: 192.168.10.10
+    mac: "aa:bb:cc:dd:ee:03"
+    site: hq
+    role: domain-controller
+    os: Windows Server 2022
+    location: Server Room Rack B
+    vlan_ids: [10]
+    notes: Primary DC, DNS, DHCP
+  - id: srv-hq-file
+    hostname: srv-hq-file
+    ip: 192.168.10.11
+    mac: "aa:bb:cc:dd:ee:04"
+    site: hq
+    role: file-server
+    os: Windows Server 2019
+    location: Server Room Rack B
+    vlan_ids: [10]
+    notes: DFS shares
+  - id: rtr-branch1
+    hostname: rtr-branch1
+    ip: 10.1.1.1
+    mac: "aa:bb:cc:dd:ee:05"
+    site: branch1
+    role: router
+    os: Cisco IOS-XE 17.3
+    location: Comms Closet
+    vlan_ids: [1, 20]
+    notes: MPLS PE connection
+  - id: sw-branch1-access
+    hostname: sw-branch1-access
+    ip: 10.1.1.2
+    mac: "aa:bb:cc:dd:ee:06"
+    site: branch1
+    role: access-switch
+    os: Cisco IOS 15.2
+    location: Comms Closet
+    vlan_ids: [20, 30]
+    notes: ""
+  - id: wap-branch1-1
+    hostname: wap-branch1-1
+    ip: 10.1.1.10
+    mac: "aa:bb:cc:dd:ee:07"
+    site: branch1
+    role: wireless-ap
+    os: Cisco Aironet 4800
+    location: Ceiling, Office Area
+    vlan_ids: [40]
+    notes: ""
+  - id: srv-wh-nas
+    hostname: srv-wh-nas
+    ip: 172.16.0.10
+    mac: "aa:bb:cc:dd:ee:08"
+    site: warehouse
+    role: nas
+    os: TrueNAS Scale
+    location: Warehouse Rack
+    vlan_ids: [10]
+    notes: Backup target for all sites
+  - id: wks-hq-001
+    hostname: wks-hq-001
+    ip: 192.168.20.101
+    mac: "aa:bb:cc:dd:ee:09"
+    site: hq
+    role: workstation
+    os: Windows 11 Pro
+    location: Finance Dept, Desk 5
+    vlan_ids: [20]
+    notes: ""
+  - id: wks-hq-002
+    hostname: wks-hq-002
+    ip: 192.168.20.102
+    mac: "aa:bb:cc:dd:ee:10"
+    site: hq
+    role: workstation
+    os: Windows 11 Pro
+    location: HR Dept, Desk 2
+    vlan_ids: [20]
+    notes: ""
+  - id: prx-hq-1
+    hostname: prx-hq-1
+    ip: 192.168.10.20
+    mac: "aa:bb:cc:dd:ee:11"
+    site: hq
+    role: proxy
+    os: Ubuntu 22.04
+    location: Server Room Rack A
+    vlan_ids: [10]
+    notes: Squid proxy + pfSense gateway
+  - id: cam-wh-01
+    hostname: cam-wh-01
+    ip: 172.16.50.1
+    mac: "aa:bb:cc:dd:ee:12"
+    site: warehouse
+    role: ip-camera
+    os: Hikvision firmware
+    location: Loading Dock
+    vlan_ids: [50]
+    notes: ""
