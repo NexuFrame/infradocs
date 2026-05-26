@@ -10,11 +10,11 @@
 
 See what InfraDocs generates from your data:
 
-- **[Dashboard Overview](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/index.html)** — Summary cards, quick links, infrastructure stats
-- **[Devices Table](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/devices.html)** — Sortable device inventory with IPs, MACs, roles, status
-- **[VLANs & Subnets](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/vlans.html)** — Network segmentation documentation
-- **[Circuits & Vendors](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/circuits.html)** — ISP tracking and vendor contacts
-- **[Visual Showcase](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-screenshots.html)** — Full feature walkthrough with screenshots
+- **[Visual Showcase](https://nexuframe.github.io/infradocs/demo-screenshots.html)** — Full feature walkthrough with screenshots *(start here!)*
+- **[Dashboard Overview](https://nexuframe.github.io/infradocs/demo-site/index.html)** — Summary cards, quick links, infrastructure stats
+- **[Devices Table](https://nexuframe.github.io/infradocs/demo-site/devices.html)** — Sortable device inventory with IPs, MACs, roles, status
+- **[VLANs & Subnets](https://nexuframe.github.io/infradocs/demo-site/vlans.html)** — Network segmentation documentation
+- **[Circuits & Vendors](https://nexuframe.github.io/infradocs/demo-site/circuits.html)** — ISP tracking and vendor contacts
 
 Or clone and build the sample data yourself:
 ```bash
