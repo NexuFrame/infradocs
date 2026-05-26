@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ device.hostname }} — InfraDocs{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ device.hostname }}</h1>
+  <table class="detail-table">
+    <tr><th>IP Address</th><td>{{ device.ip }}</td></tr>
+    <tr><th>MAC Address</th><td>{{ device.mac | default('—') }}</td></tr>
+    <tr><th>Site</th><td>{{ device.site }}</td></tr>
+    <tr><th>Role</th><td>{{ device.role }}</td></tr>
+    <tr><th>OS</th><td>{{ device.os | default('—') }}</td></tr>
+    <tr><th>Location</th><td>{{ device.location | default('—') }}</td></tr>
+    <tr><th>Notes</th><td>{{ device.notes | default('—') }}</td></tr>
+  </table>
+  {% if device.vlan_ids %}
+  <h2>VLANs</h2>
+  <ul>{% for v in device.vlan_ids %}<li><a href="../vlans/{{ v }}.html">VLAN {{ v }}</a></li>{% endfor %}</ul>
+  {% endif %}
+</div>
+{% endblock %}

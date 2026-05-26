@@ -1,0 +1,26 @@
+subnets:
+  - cidr: 192.168.1.0/24
+    gateway: 192.168.1.1
+    vlan: 1
+    site: hq
+    notes: Management network
+  - cidr: 192.168.10.0/24
+    gateway: 192.168.10.1
+    vlan: 10
+    site: hq
+    notes: Server farm
+  - cidr: 192.168.20.0/24
+    gateway: 192.168.20.1
+    vlan: 20
+    site: hq
+    notes: Workstations floor 1 and 2
+  - cidr: 10.1.1.0/24
+    gateway: 10.1.1.1
+    vlan: 20
+    site: branch1
+    notes: Branch office LAN
+  - cidr: 172.16.0.0/24
+    gateway: 172.16.0.1
+    vlan: 10
+    site: warehouse
+    notes: Warehouse servers and NAS

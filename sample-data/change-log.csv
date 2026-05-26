@@ -1,0 +1,6 @@
+date,engineer,description,systems_affected,rollback_plan,outcome
+2026-05-01,John Smith,Upgraded core switch IOS from 15.2(4) to 15.2(7),sw-hq-core,Downgrade via TFTP boot,Success
+2026-04-15,Jane Doe,Added VLAN 60 for VoIP rollout,sw-hq-core sw-hq-access1,Remove VLAN and reconfigure phones,Success
+2026-03-28,Bob Johnson,Replaced failed UPS in warehouse rack,srv-wh-nas,N/A - hardware replacement,Success
+2026-03-10,John Smith,Deployed Squid proxy on prx-hq-1,prx-hq-1,Stop squid service and revert firewall rules,Success
+2026-02-20,Jane Doe,Extended M365 licenses from 25 to 35 seats,All workstations,Remove extra licenses,Success

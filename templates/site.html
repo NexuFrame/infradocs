@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Sites - {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Sites</h2>
+    <p class="subtitle">Physical locations and facilities</p>
+</div>
+
+{% if data.sites and data.sites|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for site in data.sites %}
+            <tr id="{{ site.id }}">
+                <td class="mono">{{ site.id }}</td>
+                <td><strong>{{ site.name }}</strong></td>
+                <td>{{ site.location or 'N/A' }}</td>
+                <td>{{ site.description or 'N/A' }}</td>
+                <td>{{ site.status | status_badge }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Site Details -->
+{% for site in data.sites %}
+<section class="detail-section" id="detail-{{ site.id }}">
+    <h3>{{ site.name }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">{{ site.id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>{{ site.location or 'N/A' }}</span>
+        </div>
+        {% if site.address %}
+        <div class="detail-item">
+            <label>Address:</label>
+            <span>{{ site.address }}</span>
+        </div>
+        {% endif %}
+        <div class="detail-item">
+            <label>Status:</label>
+            <span>{{ site.status | status_badge }}</span>
+        </div>
+    </div>
+    {% if site.description %}
+    <div class="detail-description">
+        <p>{{ site.description }}</p>
+    </div>
+    {% endif %}
+    
+    <!-- Devices at this site -->
+    {% set site_devices = namespace(items=[]) %}
+    {% for device in data.devices %}
+        {% if device.site_id == site.id %}
+            {% set site_devices.items = site_devices.items + [device] %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if site_devices.items %}
+    <h4>Devices at this Site</h4>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in site_devices.items %}
+            <tr>
+                <td>{{ device.name }}</td>
+                <td>{{ device.type }}</td>
+                <td class="mono">{{ device.ip_address }}</td>
+                <td>{{ device.status | status_badge }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No sites configured. Add sites to your sites.yaml file.</p>
+</div>
+{% endif %}
+{% endblock %}

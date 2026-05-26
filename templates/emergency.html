@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Emergency Contacts — InfraDocs{% endblock %}
+{% block content %}
+<h1>Emergency Contacts &amp; Runbook</h1>
+{% for contact in contacts %}
+<div class="card">
+  <h2>{{ contact.name }} — {{ contact.role }}</h2>
+  <p>📞 {{ contact.phone | default('—') }} | ✉️ {{ contact.email | default('—') }}</p>
+</div>
+{% endfor %}
+{% if runbook %}
+<h2>Recovery Runbook</h2>
+<ol>{% for step in runbook %}<li>{{ step }}</li>{% endfor %}</ol>
+{% endif %}
+{% endblock %}

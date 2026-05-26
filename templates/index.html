@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.title }} - Home{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>{{ site.title }}</h2>
+    <p class="subtitle">{{ site.description }}</p>
+</div>
+
+<section class="summary-section">
+    <h3>Infrastructure Overview</h3>
+    <div class="summary-cards">
+        <div class="card">
+            <div class="card-icon">🏢</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_sites }}</div>
+                <div class="card-label">Sites</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🖥️</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_devices }}</div>
+                <div class="card-label">Devices</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🌐</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_vlans }}</div>
+                <div class="card-label">VLANs</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_subnets }}</div>
+                <div class="card-label">Subnets</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🖨️</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_printers }}</div>
+                <div class="card-label">Printers</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🏷️</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_vendors }}</div>
+                <div class="card-label">Vendors</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔌</div>
+            <div class="card-content">
+                <div class="card-value">{{ summary.total_circuits }}</div>
+                <div class="card-label">Circuits</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="quick-links">
+    <h3>Quick Links</h3>
+    <div class="link-grid">
+        <a href="sites.html" class="quick-link">
+            <span class="link-icon">🏢</span>
+            <span class="link-text">View Sites</span>
+        </a>
+        <a href="devices.html" class="quick-link">
+            <span class="link-icon">🖥️</span>
+            <span class="link-text">View Devices</span>
+        </a>
+        <a href="vlans.html" class="quick-link">
+            <span class="link-icon">🌐</span>
+            <span class="link-text">View VLANs</span>
+        </a>
+        <a href="subnets.html" class="quick-link">
+            <span class="link-icon">📊</span>
+            <span class="link-text">View Subnets</span>
+        </a>
+        <a href="printers.html" class="quick-link">
+            <span class="link-icon">🖨️</span>
+            <span class="link-text">View Printers</span>
+        </a>
+        <a href="emergency.html" class="quick-link emergency">
+            <span class="link-icon">🚨</span>
+            <span class="link-text">Emergency Procedures</span>
+        </a>
+    </div>
+</section>
+
+{% if data.change_log and data.change_log|length > 0 %}
+<section class="recent-changes">
+    <h3>Recent Changes</h3>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Changed By</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data.change_log[:5] %}
+            <tr>
+                <td>{{ entry.date | format_date }}</td>
+                <td>{{ entry.description }}</td>
+                <td>{{ entry.changed_by or 'N/A' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="table-footer"><a href="change-log.html">View all changes →</a></p>
+</section>
+{% endif %}
+{% endblock %}
