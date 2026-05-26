@@ -6,6 +6,25 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tests](https://img.shields.io/badge/tests-pytest-green.svg)]()
 
+## 🖥️ Live Demo
+
+See what InfraDocs generates from your data:
+
+- **[Dashboard Overview](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/index.html)** — Summary cards, quick links, infrastructure stats
+- **[Devices Table](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/devices.html)** — Sortable device inventory with IPs, MACs, roles, status
+- **[VLANs & Subnets](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/vlans.html)** — Network segmentation documentation
+- **[Circuits & Vendors](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-site/circuits.html)** — ISP tracking and vendor contacts
+- **[Visual Showcase](https://htmlpreview.github.io/?https://github.com/NexuFrame/infradocs/blob/main/docs/demo-screenshots.html)** — Full feature walkthrough with screenshots
+
+Or clone and build the sample data yourself:
+```bash
+git clone https://github.com/NexuFrame/infradocs.git
+cd infradocs
+pip install -e .
+infradocs build --input sample-data --output output/site
+# Open output/site/index.html in your browser
+```
+
 ## Features
 
 - **Multiple Input Formats** — Reads YAML, JSON, and CSV files
