@@ -1,14 +1,85 @@
 {% extends "base.html" %}
-{% block title %}{{ subnet.cidr }} — InfraDocs{% endblock %}
+{% block title %}Subnets — {{ site.title }}{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>{{ subnet.cidr }}</h1>
-  <table class="detail-table">
-    <tr><th>CIDR</th><td>{{ subnet.cidr }}</td></tr>
-    <tr><th>Gateway</th><td>{{ subnet.gateway | default('—') }}</td></tr>
-    <tr><th>VLAN</th><td>{{ subnet.vlan | default('—') }}</td></tr>
-    <tr><th>Site</th><td>{{ subnet.site | default('—') }}</td></tr>
-    <tr><th>Notes</th><td>{{ subnet.notes | default('—') }}</td></tr>
-  </table>
+<div class="page-header">
+    <h2>Subnets</h2>
+    <p class="subtitle">IP subnet allocations</p>
 </div>
+
+{% if data.subnets and data.subnets|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>CIDR</th>
+                <th>Gateway</th>
+                <th>VLAN</th>
+                <th>Site</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subnet in data.subnets %}
+            <tr id="{{ subnet.id }}">
+                <td><strong>{{ subnet.name }}</strong></td>
+                <td class="mono">{{ subnet.cidr }}</td>
+                <td class="mono">{{ subnet.gateway | default('—') }}</td>
+                <td>{{ subnet.vlan | default('—') }}</td>
+                <td>{{ subnet.site_id | default('—') }}</td>
+                <td>{{ subnet.notes | default('—') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for subnet in data.subnets %}
+<section class="detail-section" id="detail-{{ subnet.id }}">
+    <h3>{{ subnet.name }} — {{ subnet.cidr }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">{{ subnet.id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>{{ subnet.name }}</span>
+        </div>
+        <div class="detail-item">
+            <label>CIDR:</label>
+            <span class="mono">{{ subnet.cidr }}</span>
+        </div>
+        {% if subnet.gateway %}
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">{{ subnet.gateway }}</span>
+        </div>
+        {% endif %}
+        {% if subnet.vlan %}
+        <div class="detail-item">
+            <label>VLAN:</label>
+            <span>{{ subnet.vlan }}</span>
+        </div>
+        {% endif %}
+        {% if subnet.site_id %}
+        <div class="detail-item">
+            <label>Site:</label>
+            <span>{{ subnet.site_id }}</span>
+        </div>
+        {% endif %}
+    </div>
+    {% if subnet.notes %}
+    <div class="detail-description">
+        <p>{{ subnet.notes }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No subnets configured. Add subnets to your subnets.yaml file.</p>
+</div>
+{% endif %}
 {% endblock %}

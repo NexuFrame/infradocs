@@ -1,14 +1,85 @@
 {% extends "base.html" %}
-{% block title %}{{ vendor.name }} — InfraDocs{% endblock %}
+{% block title %}Vendors — {{ site.title }}{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>{{ vendor.name }}</h1>
-  <table class="detail-table">
-    <tr><th>Account Rep</th><td>{{ vendor.account_rep | default('—') }}</td></tr>
-    <tr><th>Support Phone</th><td>{{ vendor.support_phone | default('—') }}</td></tr>
-    <tr><th>Support Email</th><td>{{ vendor.support_email | default('—') }}</td></tr>
-    <tr><th>Contract Expiry</th><td>{{ vendor.contract_expiry | default('—') }}</td></tr>
-    <tr><th>Notes</th><td>{{ vendor.notes | default('—') }}</td></tr>
-  </table>
+<div class="page-header">
+    <h2>Vendors</h2>
+    <p class="subtitle">Suppliers, ISPs, and service providers</p>
 </div>
+
+{% if data.vendors and data.vendors|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Account Rep</th>
+                <th>Support Phone</th>
+                <th>Support Email</th>
+                <th>Contract Expiry</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vendor in data.vendors %}
+            <tr id="{{ vendor.id }}">
+                <td><strong>{{ vendor.name }}</strong></td>
+                <td>{{ vendor.account_rep | default('—') }}</td>
+                <td>{{ vendor.support_phone | default('—') }}</td>
+                <td>{{ vendor.support_email | default('—') }}</td>
+                <td>{{ vendor.contract_expiry | default('—') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for vendor in data.vendors %}
+<section class="detail-section" id="detail-{{ vendor.id }}">
+    <h3>{{ vendor.name }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">{{ vendor.id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>{{ vendor.name }}</span>
+        </div>
+        {% if vendor.account_rep %}
+        <div class="detail-item">
+            <label>Account Rep:</label>
+            <span>{{ vendor.account_rep }}</span>
+        </div>
+        {% endif %}
+        {% if vendor.support_phone %}
+        <div class="detail-item">
+            <label>Support Phone:</label>
+            <span>{{ vendor.support_phone }}</span>
+        </div>
+        {% endif %}
+        {% if vendor.support_email %}
+        <div class="detail-item">
+            <label>Support Email:</label>
+            <span>{{ vendor.support_email }}</span>
+        </div>
+        {% endif %}
+        {% if vendor.contract_expiry %}
+        <div class="detail-item">
+            <label>Contract Expiry:</label>
+            <span>{{ vendor.contract_expiry }}</span>
+        </div>
+        {% endif %}
+    </div>
+    {% if vendor.notes %}
+    <div class="detail-description">
+        <p>{{ vendor.notes }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No vendors configured. Add vendors to your vendors.yaml file.</p>
+</div>
+{% endif %}
 {% endblock %}

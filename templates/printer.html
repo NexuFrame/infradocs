@@ -1,14 +1,85 @@
 {% extends "base.html" %}
-{% block title %}{{ printer.hostname }} — InfraDocs{% endblock %}
+{% block title %}Printers — {{ site.title }}{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>{{ printer.hostname }}</h1>
-  <table class="detail-table">
-    <tr><th>IP</th><td>{{ printer.ip }}</td></tr>
-    <tr><th>Model</th><td>{{ printer.model | default('—') }}</td></tr>
-    <tr><th>Location</th><td>{{ printer.location | default('—') }}</td></tr>
-    <tr><th>Queue Name</th><td>{{ printer.queue_name | default('—') }}</td></tr>
-    <tr><th>Driver Notes</th><td>{{ printer.driver_notes | default('—') }}</td></tr>
-  </table>
+<div class="page-header">
+    <h2>Printers</h2>
+    <p class="subtitle">Network printers and print queues</p>
 </div>
+
+{% if data.printers and data.printers|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Location</th>
+                <th>Queue Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for printer in data.printers %}
+            <tr id="{{ printer.id }}">
+                <td><strong>{{ printer.name }}</strong></td>
+                <td>{{ printer.type | default('—') }}</td>
+                <td class="mono">{{ printer.ip_address }}</td>
+                <td>{{ printer.location | default('—') }}</td>
+                <td class="mono">{{ printer.queue_name | default('—') }}</td>
+                <td>{{ printer.status | default('unknown') | status_badge }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for printer in data.printers %}
+<section class="detail-section" id="detail-{{ printer.id }}">
+    <h3>{{ printer.name }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">{{ printer.id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>{{ printer.name }}</span>
+        </div>
+        {% if printer.type %}
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>{{ printer.type }}</span>
+        </div>
+        {% endif %}
+        <div class="detail-item">
+            <label>IP Address:</label>
+            <span class="mono">{{ printer.ip_address }}</span>
+        </div>
+        {% if printer.location %}
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>{{ printer.location }}</span>
+        </div>
+        {% endif %}
+        {% if printer.queue_name %}
+        <div class="detail-item">
+            <label>Queue Name:</label>
+            <span class="mono">{{ printer.queue_name }}</span>
+        </div>
+        {% endif %}
+    </div>
+    {% if printer.driver_notes %}
+    <div class="detail-description">
+        <p><strong>Driver Notes:</strong> {{ printer.driver_notes }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No printers configured. Add printers to your printers.yaml file.</p>
+</div>
+{% endif %}
 {% endblock %}

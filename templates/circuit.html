@@ -1,15 +1,101 @@
 {% extends "base.html" %}
-{% block title %}{{ circuit.circuit_id }} — InfraDocs{% endblock %}
+{% block title %}Circuits — {{ site.title }}{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>{{ circuit.provider }} — {{ circuit.circuit_id }}</h1>
-  <table class="detail-table">
-    <tr><th>Provider</th><td>{{ circuit.provider }}</td></tr>
-    <tr><th>Circuit ID</th><td>{{ circuit.circuit_id }}</td></tr>
-    <tr><th>Bandwidth</th><td>{{ circuit.bandwidth | default('—') }}</td></tr>
-    <tr><th>Type</th><td>{{ circuit.type | default('—') }}</td></tr>
-    <tr><th>Monthly Cost</th><td>{{ circuit.monthly_cost | default('—') }}</td></tr>
-    <tr><th>Support</th><td>{{ circuit.support_contact | default('—') }}</td></tr>
-  </table>
+<div class="page-header">
+    <h2>Circuits</h2>
+    <p class="subtitle">Internet and telecom circuits</p>
 </div>
+
+{% if data.circuits and data.circuits|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Provider</th>
+                <th>Circuit ID</th>
+                <th>Type</th>
+                <th>Bandwidth</th>
+                <th>Monthly Cost</th>
+                <th>Site</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for circuit in data.circuits %}
+            <tr id="{{ circuit.id }}">
+                <td><strong>{{ circuit.name }}</strong></td>
+                <td>{{ circuit.provider }}</td>
+                <td class="mono">{{ circuit.circuit_id | default('—') }}</td>
+                <td>{{ circuit.type | default('—') }}</td>
+                <td>{{ circuit.bandwidth | default('—') }}</td>
+                <td>{{ circuit.monthly_cost | default('—') }}</td>
+                <td>{{ circuit.site_id | default('—') }}</td>
+                <td>{{ circuit.status | default('unknown') | status_badge }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for circuit in data.circuits %}
+<section class="detail-section" id="detail-{{ circuit.id }}">
+    <h3>{{ circuit.name }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">{{ circuit.id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>{{ circuit.name }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Provider:</label>
+            <span>{{ circuit.provider }}</span>
+        </div>
+        {% if circuit.circuit_id %}
+        <div class="detail-item">
+            <label>Circuit ID:</label>
+            <span class="mono">{{ circuit.circuit_id }}</span>
+        </div>
+        {% endif %}
+        {% if circuit.type %}
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>{{ circuit.type }}</span>
+        </div>
+        {% endif %}
+        {% if circuit.bandwidth %}
+        <div class="detail-item">
+            <label>Bandwidth:</label>
+            <span>{{ circuit.bandwidth }}</span>
+        </div>
+        {% endif %}
+        {% if circuit.monthly_cost %}
+        <div class="detail-item">
+            <label>Monthly Cost:</label>
+            <span>{{ circuit.monthly_cost }}</span>
+        </div>
+        {% endif %}
+        {% if circuit.support_contact %}
+        <div class="detail-item">
+            <label>Support Contact:</label>
+            <span>{{ circuit.support_contact }}</span>
+        </div>
+        {% endif %}
+    </div>
+    {% if circuit.notes %}
+    <div class="detail-description">
+        <p>{{ circuit.notes }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No circuits configured. Add circuits to your circuits.yaml file.</p>
+</div>
+{% endif %}
 {% endblock %}

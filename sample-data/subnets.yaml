@@ -1,26 +1,36 @@
 subnets:
-  - cidr: 192.168.1.0/24
+  - id: subnet-mgmt
+    name: Management Network
+    cidr: 192.168.1.0/24
     gateway: 192.168.1.1
     vlan: 1
-    site: hq
+    site_id: hq
     notes: Management network
-  - cidr: 192.168.10.0/24
+  - id: subnet-servers
+    name: Server Farm
+    cidr: 192.168.10.0/24
     gateway: 192.168.10.1
     vlan: 10
-    site: hq
+    site_id: hq
     notes: Server farm
-  - cidr: 192.168.20.0/24
+  - id: subnet-workstations
+    name: Workstations
+    cidr: 192.168.20.0/24
     gateway: 192.168.20.1
     vlan: 20
-    site: hq
+    site_id: hq
     notes: Workstations floor 1 and 2
-  - cidr: 10.1.1.0/24
+  - id: subnet-branch
+    name: Branch Office LAN
+    cidr: 10.1.1.0/24
     gateway: 10.1.1.1
     vlan: 20
-    site: branch1
+    site_id: branch1
     notes: Branch office LAN
-  - cidr: 172.16.0.0/24
+  - id: subnet-warehouse
+    name: Warehouse Network
+    cidr: 172.16.0.0/24
     gateway: 172.16.0.1
     vlan: 10
-    site: warehouse
+    site_id: warehouse
     notes: Warehouse servers and NAS

@@ -1,22 +1,34 @@
 circuits:
-  - provider: Acme ISP
+  - id: circuit-primary
+    name: Primary Fiber WAN
+    provider: Acme ISP
     circuit_id: ACM-FBR-00123
     bandwidth: 1 Gbps symmetric
     type: Fiber
     monthly_cost: "$450"
     support_contact: "1-800-555-0199 option 2"
     notes: Primary WAN, connects to rtr-hq-core
-  - provider: CableLink
+    site_id: hq
+    status: active
+  - id: circuit-backup
+    name: Backup Cable WAN
+    provider: CableLink
     circuit_id: CLK-CBL-00456
     bandwidth: 100 Mbps down / 20 Mbps up
     type: Cable
     monthly_cost: "$120"
     support_contact: "1-800-555-0200"
     notes: Backup WAN, failover via VRRP
-  - provider: MobileCo
+    site_id: hq
+    status: active
+  - id: circuit-oob
+    name: Out-of-Band LTE
+    provider: MobileCo
     circuit_id: MOB-LTE-00789
     bandwidth: 50 Mbps down / 10 Mbps up
     type: LTE
     monthly_cost: "$95"
     support_contact: "611 from SIM card"
     notes: Out-of-band management only, SIM in router
+    site_id: hq
+    status: active

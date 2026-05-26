@@ -63,6 +63,6 @@ pytest --cov=infradocs
 
 ## Questions?
 
-Feel free to open an issue or reach out to support@infradocs.io
+Feel free to open an issue or reach out to support@nexuframe.com
 
 Thank you for contributing! 🎉

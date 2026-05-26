@@ -1,20 +1,118 @@
 {% extends "base.html" %}
-{% block title %}{{ device.hostname }} — InfraDocs{% endblock %}
+{% block title %}Devices — {{ site.title }}{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>{{ device.hostname }}</h1>
-  <table class="detail-table">
-    <tr><th>IP Address</th><td>{{ device.ip }}</td></tr>
-    <tr><th>MAC Address</th><td>{{ device.mac | default('—') }}</td></tr>
-    <tr><th>Site</th><td>{{ device.site }}</td></tr>
-    <tr><th>Role</th><td>{{ device.role }}</td></tr>
-    <tr><th>OS</th><td>{{ device.os | default('—') }}</td></tr>
-    <tr><th>Location</th><td>{{ device.location | default('—') }}</td></tr>
-    <tr><th>Notes</th><td>{{ device.notes | default('—') }}</td></tr>
-  </table>
-  {% if device.vlan_ids %}
-  <h2>VLANs</h2>
-  <ul>{% for v in device.vlan_ids %}<li><a href="../vlans/{{ v }}.html">VLAN {{ v }}</a></li>{% endfor %}</ul>
-  {% endif %}
+<div class="page-header">
+    <h2>Devices</h2>
+    <p class="subtitle">Network devices, servers, and endpoints</p>
 </div>
+
+{% if data.devices and data.devices|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Hostname</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>MAC Address</th>
+                <th>Site</th>
+                <th>Role</th>
+                <th>OS</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in data.devices %}
+            <tr id="{{ device.id }}">
+                <td><strong>{{ device.name }}</strong></td>
+                <td>{{ device.type }}</td>
+                <td class="mono">{{ device.ip_address }}</td>
+                <td class="mono">{{ device.mac_address | default('—') }}</td>
+                <td>{{ device.site_id }}</td>
+                <td>{{ device.role | default('—') }}</td>
+                <td>{{ device.os | default('—') }}</td>
+                <td>{{ device.location | default('—') }}</td>
+                <td>{{ device.status | default('unknown') | status_badge }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Device Details -->
+{% for device in data.devices %}
+<section class="detail-section" id="detail-{{ device.id }}">
+    <h3>{{ device.name }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">{{ device.id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Hostname:</label>
+            <span>{{ device.name }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>{{ device.type }}</span>
+        </div>
+        <div class="detail-item">
+            <label>IP Address:</label>
+            <span class="mono">{{ device.ip_address }}</span>
+        </div>
+        {% if device.mac_address %}
+        <div class="detail-item">
+            <label>MAC Address:</label>
+            <span class="mono">{{ device.mac_address }}</span>
+        </div>
+        {% endif %}
+        <div class="detail-item">
+            <label>Site:</label>
+            <span>{{ device.site_id }}</span>
+        </div>
+        {% if device.role %}
+        <div class="detail-item">
+            <label>Role:</label>
+            <span>{{ device.role }}</span>
+        </div>
+        {% endif %}
+        {% if device.os %}
+        <div class="detail-item">
+            <label>OS:</label>
+            <span>{{ device.os }}</span>
+        </div>
+        {% endif %}
+        {% if device.location %}
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>{{ device.location }}</span>
+        </div>
+        {% endif %}
+        <div class="detail-item">
+            <label>Status:</label>
+            <span>{{ device.status | default('unknown') | status_badge }}</span>
+        </div>
+    </div>
+    {% if device.vlan_ids %}
+    <h4>VLANs</h4>
+    <div class="tag-list">
+        {% for v in device.vlan_ids %}
+        <span class="tag">VLAN {{ v }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if device.notes %}
+    <div class="detail-description">
+        <p>{{ device.notes }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No devices configured. Add devices to your devices.yaml file.</p>
+</div>
+{% endif %}
 {% endblock %}

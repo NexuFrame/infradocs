@@ -90,9 +90,13 @@ class DataLoader:
             self.errors.append(f"Error loading {file_path}: {str(e)}")
     
     def _load_yaml(self, file_path: Path) -> Any:
-        """Load YAML file."""
+        """Load YAML file, unwrapping single-key dicts like {'sites': [...]}."""
         with open(file_path, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f) or []
+            data = yaml.safe_load(f) or []
+        # If the YAML has a single top-level key like 'sites:', unwrap it
+        if isinstance(data, dict) and len(data) == 1:
+            return list(data.values())[0]
+        return data
     
     def _load_json(self, file_path: Path) -> Any:
         """Load JSON file."""

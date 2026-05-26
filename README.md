@@ -121,7 +121,7 @@ The MIT license covers the source code. Commercial usage is governed by the [EUL
 
 ## Support
 
-- 📧 Email: support@infradocs.io
+- 📧 Email: support@nexuframe.com
 - 🐛 Issues: [GitHub Issues](https://github.com/NexuFrame/infradocs/issues)
 - 📖 Docs: See the `docs/` directory
 

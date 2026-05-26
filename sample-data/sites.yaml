@@ -1,16 +1,25 @@
 sites:
   - id: hq
     name: Headquarters
+    location: "123 Main St, Anytown, US"
+    description: "Main corporate headquarters"
+    status: active
     address: "123 Main St, Anytown, US"
     contact: "John Smith"
     phone: "555-0100"
   - id: branch1
     name: Branch Office 1
+    location: "456 Oak Ave, Othertown, US"
+    description: "Regional branch office"
+    status: active
     address: "456 Oak Ave, Othertown, US"
     contact: "Jane Doe"
     phone: "555-0101"
   - id: warehouse
     name: Warehouse
+    location: "789 Industrial Blvd, Anytown, US"
+    description: "Distribution warehouse"
+    status: active
     address: "789 Industrial Blvd, Anytown, US"
     contact: "Bob Johnson"
     phone: "555-0102"

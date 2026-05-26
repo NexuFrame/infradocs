@@ -1,15 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Emergency Contacts — InfraDocs{% endblock %}
+{% block title %}Emergency — {{ site.title }}{% endblock %}
 {% block content %}
-<h1>Emergency Contacts &amp; Runbook</h1>
-{% for contact in contacts %}
+<div class="page-header">
+    <h2>Emergency Contacts & Procedures</h2>
+    <p class="subtitle">Critical contacts and recovery runbooks</p>
+</div>
+
+{% if data.emergency_procedures and data.emergency_procedures|length > 0 %}
+{% for contact in data.emergency_procedures %}
 <div class="card">
-  <h2>{{ contact.name }} — {{ contact.role }}</h2>
-  <p>📞 {{ contact.phone | default('—') }} | ✉️ {{ contact.email | default('—') }}</p>
+    <h2>{{ contact.title | default(contact.name) }} — {{ contact.role | default('') }}</h2>
+    <p>📞 {{ contact.phone | default('—') }} | ✉️ {{ contact.email | default('—') }}</p>
+    {% if contact.steps %}
+    <h3>Recovery Steps</h3>
+    <ol>{% for step in contact.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+    {% endif %}
 </div>
 {% endfor %}
-{% if runbook %}
-<h2>Recovery Runbook</h2>
-<ol>{% for step in runbook %}<li>{{ step }}</li>{% endfor %}</ol>
+{% else %}
+<div class="empty-state">
+    <p>No emergency procedures configured. Add them to your emergency-procedures.yaml file.</p>
+</div>
 {% endif %}
 {% endblock %}

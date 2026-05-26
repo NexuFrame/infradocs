@@ -1,14 +1,73 @@
 {% extends "base.html" %}
-{% block title %}VLAN {{ vlan.id }} — InfraDocs{% endblock %}
+{% block title %}VLANs — {{ site.title }}{% endblock %}
 {% block content %}
-<div class="card">
-  <h1>VLAN {{ vlan.id }} — {{ vlan.name }}</h1>
-  <table class="detail-table">
-    <tr><th>ID</th><td>{{ vlan.id }}</td></tr>
-    <tr><th>Name</th><td>{{ vlan.name }}</td></tr>
-    <tr><th>Subnet</th><td>{{ vlan.subnet | default('—') }}</td></tr>
-    <tr><th>Gateway</th><td>{{ vlan.gateway | default('—') }}</td></tr>
-    <tr><th>Description</th><td>{{ vlan.description | default('—') }}</td></tr>
-  </table>
+<div class="page-header">
+    <h2>VLANs</h2>
+    <p class="subtitle">Network VLAN configurations</p>
 </div>
+
+{% if data.vlans and data.vlans|length > 0 %}
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>VLAN ID</th>
+                <th>Name</th>
+                <th>Subnet</th>
+                <th>Gateway</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vlan in data.vlans %}
+            <tr id="{{ vlan.id }}">
+                <td class="mono"><strong>{{ vlan.vlan_id }}</strong></td>
+                <td>{{ vlan.name }}</td>
+                <td class="mono">{{ vlan.subnet | default('—') }}</td>
+                <td class="mono">{{ vlan.gateway | default('—') }}</td>
+                <td>{{ vlan.description | default('—') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for vlan in data.vlans %}
+<section class="detail-section" id="detail-{{ vlan.id }}">
+    <h3>VLAN {{ vlan.vlan_id }} — {{ vlan.name }}</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">{{ vlan.vlan_id }}</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>{{ vlan.name }}</span>
+        </div>
+        {% if vlan.subnet %}
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">{{ vlan.subnet }}</span>
+        </div>
+        {% endif %}
+        {% if vlan.gateway %}
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">{{ vlan.gateway }}</span>
+        </div>
+        {% endif %}
+    </div>
+    {% if vlan.description %}
+    <div class="detail-description">
+        <p>{{ vlan.description }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endfor %}
+
+{% else %}
+<div class="empty-state">
+    <p>No VLANs configured. Add VLANs to your vlans.yaml file.</p>
+</div>
+{% endif %}
 {% endblock %}

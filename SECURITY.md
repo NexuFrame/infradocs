@@ -12,7 +12,7 @@ If you discover a security vulnerability in InfraDocs Generator, please report i
 
 **Please do NOT open a public issue for security vulnerabilities.**
 
-Instead, email us directly at: **security@infradocs.io**
+Instead, email us directly at: **security@nexuframe.com**
 
 We will:
 - Acknowledge receipt within 48 hours

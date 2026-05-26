@@ -1,29 +1,34 @@
 vendors:
-  - name: Acme ISP
+  - id: vendor-acme
+    name: Acme ISP
     account_rep: Sarah Connor
     support_phone: "1-800-555-0199"
     support_email: support@acme-isp.example.com
     contract_expiry: "2027-03-31"
     notes: Primary fiber ISP, SLA 99.9%
-  - name: TechHardware Reseller
+  - id: vendor-techhw
+    name: TechHardware Reseller
     account_rep: Mike Ross
     support_phone: "555-0150"
     support_email: sales@techhw.example.com
     contract_expiry: "2026-12-31"
     notes: Cisco and HP preferred reseller
-  - name: CloudSoft Licensing
+  - id: vendor-cloudsoft
+    name: CloudSoft Licensing
     account_rep: Jessica Pearson
     support_phone: "1-888-555-0177"
     support_email: licensing@cloudsoft.example.com
     contract_expiry: "2027-01-15"
     notes: Microsoft CSP, M365 licenses
-  - name: SecureIT Support
+  - id: vendor-secureit
+    name: SecureIT Support
     account_rep: Harvey Specter
     support_phone: "555-0166"
     support_email: help@secureit.example.com
     contract_expiry: "2026-09-30"
     notes: Managed IT support contract, 4hr response SLA
-  - name: VoicePlus Telecom
+  - id: vendor-voiceplus
+    name: VoicePlus Telecom
     account_rep: Louis Litt
     support_phone: "1-877-555-0188"
     support_email: support@voiceplus.example.com
