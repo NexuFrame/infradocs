@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendors — IT Infrastructure Documentation</title>
+    <style>
+        :root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --accent: #4f8ef7;
+  --text: #e0e0e0;
+  --muted: #8892a4;
+  --border: #2a2a4a;
+  --success: #4caf50;
+  --warning: #ff9800;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; min-height: 100vh; }
+nav { width: 220px; background: var(--surface); padding: 1.5rem 1rem; flex-shrink: 0; border-right: 1px solid var(--border); }
+nav a { display: block; padding: 0.4rem 0.6rem; color: var(--muted); text-decoration: none; border-radius: 4px; margin-bottom: 2px; font-size: 0.9rem; }
+nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+main { flex: 1; padding: 2rem; overflow-y: auto; }
+h1 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--accent); }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.8rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.2rem; }
+.detail-table { width: 100%; border-collapse: collapse; }
+.detail-table th { width: 160px; text-align: left; padding: 0.5rem 0.8rem; color: var(--muted); font-weight: 500; }
+.detail-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+.data-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; }
+.data-table th { background: var(--border); padding: 0.7rem 1rem; text-align: left; font-size: 0.85rem; color: var(--muted); }
+.data-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.data-table tr:hover td { background: rgba(79,142,247,0.05); }
+#search-box { width: 100%; padding: 0.6rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; margin-bottom: 1.2rem; }
+#search-box:focus { outline: none; border-color: var(--accent); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; background: var(--border); color: var(--muted); }
+@media (max-width: 768px) { body { flex-direction: column; } nav { width: 100%; padding: 0.8rem; display: flex; flex-wrap: wrap; gap: 4px; nav a { padding: 0.3rem 0.6rem; } main { padding: 1rem; } }
+@media print { nav { display: none; } body { background: #fff; color: #000; } .card { border: 1px solid #ccc; } }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>InfraDocs</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="sites.html">Sites</a>
+                    <a href="devices.html">Devices</a>
+                    <a href="vlans.html">VLANs</a>
+                    <a href="subnets.html">Subnets</a>
+                    <a href="printers.html">Printers</a>
+                    <a href="vendors.html">Vendors</a>
+                    <a href="circuits.html">Circuits</a>
+                    <a href="change-log.html">Change Log</a>
+                    <a href="emergency.html">Emergency</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search infrastructure...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <main class="main">
+<div class="page-header">
+    <h2>Vendors</h2>
+    <p class="subtitle">Suppliers, ISPs, and service providers</p>
+</div>
+
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Account Rep</th>
+                <th>Support Phone</th>
+                <th>Support Email</th>
+                <th>Contract Expiry</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="vendor-acme">
+                <td><strong>Acme ISP</strong></td>
+                <td>Sarah Connor</td>
+                <td>1-800-555-0199</td>
+                <td>support@acme-isp.example.com</td>
+                <td>2027-03-31</td>
+            </tr>
+            <tr id="vendor-techhw">
+                <td><strong>TechHardware Reseller</strong></td>
+                <td>Mike Ross</td>
+                <td>555-0150</td>
+                <td>sales@techhw.example.com</td>
+                <td>2026-12-31</td>
+            </tr>
+            <tr id="vendor-cloudsoft">
+                <td><strong>CloudSoft Licensing</strong></td>
+                <td>Jessica Pearson</td>
+                <td>1-888-555-0177</td>
+                <td>licensing@cloudsoft.example.com</td>
+                <td>2027-01-15</td>
+            </tr>
+            <tr id="vendor-secureit">
+                <td><strong>SecureIT Support</strong></td>
+                <td>Harvey Specter</td>
+                <td>555-0166</td>
+                <td>help@secureit.example.com</td>
+                <td>2026-09-30</td>
+            </tr>
+            <tr id="vendor-voiceplus">
+                <td><strong>VoicePlus Telecom</strong></td>
+                <td>Louis Litt</td>
+                <td>1-877-555-0188</td>
+                <td>support@voiceplus.example.com</td>
+                <td>2026-11-30</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<section class="detail-section" id="detail-vendor-acme">
+    <h3>Acme ISP</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">vendor-acme</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Acme ISP</span>
+        </div>
+        <div class="detail-item">
+            <label>Account Rep:</label>
+            <span>Sarah Connor</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Phone:</label>
+            <span>1-800-555-0199</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Email:</label>
+            <span>support@acme-isp.example.com</span>
+        </div>
+        <div class="detail-item">
+            <label>Contract Expiry:</label>
+            <span>2027-03-31</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Primary fiber ISP, SLA 99.9%</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vendor-techhw">
+    <h3>TechHardware Reseller</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">vendor-techhw</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>TechHardware Reseller</span>
+        </div>
+        <div class="detail-item">
+            <label>Account Rep:</label>
+            <span>Mike Ross</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Phone:</label>
+            <span>555-0150</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Email:</label>
+            <span>sales@techhw.example.com</span>
+        </div>
+        <div class="detail-item">
+            <label>Contract Expiry:</label>
+            <span>2026-12-31</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Cisco and HP preferred reseller</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vendor-cloudsoft">
+    <h3>CloudSoft Licensing</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">vendor-cloudsoft</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>CloudSoft Licensing</span>
+        </div>
+        <div class="detail-item">
+            <label>Account Rep:</label>
+            <span>Jessica Pearson</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Phone:</label>
+            <span>1-888-555-0177</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Email:</label>
+            <span>licensing@cloudsoft.example.com</span>
+        </div>
+        <div class="detail-item">
+            <label>Contract Expiry:</label>
+            <span>2027-01-15</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Microsoft CSP, M365 licenses</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vendor-secureit">
+    <h3>SecureIT Support</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">vendor-secureit</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>SecureIT Support</span>
+        </div>
+        <div class="detail-item">
+            <label>Account Rep:</label>
+            <span>Harvey Specter</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Phone:</label>
+            <span>555-0166</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Email:</label>
+            <span>help@secureit.example.com</span>
+        </div>
+        <div class="detail-item">
+            <label>Contract Expiry:</label>
+            <span>2026-09-30</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Managed IT support contract, 4hr response SLA</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vendor-voiceplus">
+    <h3>VoicePlus Telecom</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">vendor-voiceplus</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>VoicePlus Telecom</span>
+        </div>
+        <div class="detail-item">
+            <label>Account Rep:</label>
+            <span>Louis Litt</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Phone:</label>
+            <span>1-877-555-0188</span>
+        </div>
+        <div class="detail-item">
+            <label>Support Email:</label>
+            <span>support@voiceplus.example.com</span>
+        </div>
+        <div class="detail-item">
+            <label>Contract Expiry:</label>
+            <span>2026-11-30</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>VoIP provider, SIP trunks x10</p>
+    </div>
+</section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Generated by <a href="https://github.com/NexuFrame/infradocs" target="_blank">InfraDocs Generator</a> · <a href="mailto:support@nexuframe.com">support@nexuframe.com</a></p>
+                <p class="timestamp">Generated: 2026-05-26 15:28:23</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+  var index = [];
+  var searchBox = document.getElementById('search-box');
+  if (!searchBox) return;
+
+  fetch('../search_index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { index = data; })
+    .catch(function () {});
+
+  searchBox.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    var cards = document.querySelectorAll('[data-searchable]');
+    cards.forEach(function (card) {
+      var text = card.getAttribute('data-searchable').toLowerCase();
+      card.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+  });
+})();
+
+    </script>
+
+</body>
+</html>

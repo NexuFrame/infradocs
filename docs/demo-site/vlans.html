@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLANs — IT Infrastructure Documentation</title>
+    <style>
+        :root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --accent: #4f8ef7;
+  --text: #e0e0e0;
+  --muted: #8892a4;
+  --border: #2a2a4a;
+  --success: #4caf50;
+  --warning: #ff9800;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; min-height: 100vh; }
+nav { width: 220px; background: var(--surface); padding: 1.5rem 1rem; flex-shrink: 0; border-right: 1px solid var(--border); }
+nav a { display: block; padding: 0.4rem 0.6rem; color: var(--muted); text-decoration: none; border-radius: 4px; margin-bottom: 2px; font-size: 0.9rem; }
+nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+main { flex: 1; padding: 2rem; overflow-y: auto; }
+h1 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--accent); }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.8rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.2rem; }
+.detail-table { width: 100%; border-collapse: collapse; }
+.detail-table th { width: 160px; text-align: left; padding: 0.5rem 0.8rem; color: var(--muted); font-weight: 500; }
+.detail-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+.data-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; }
+.data-table th { background: var(--border); padding: 0.7rem 1rem; text-align: left; font-size: 0.85rem; color: var(--muted); }
+.data-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.data-table tr:hover td { background: rgba(79,142,247,0.05); }
+#search-box { width: 100%; padding: 0.6rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; margin-bottom: 1.2rem; }
+#search-box:focus { outline: none; border-color: var(--accent); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; background: var(--border); color: var(--muted); }
+@media (max-width: 768px) { body { flex-direction: column; } nav { width: 100%; padding: 0.8rem; display: flex; flex-wrap: wrap; gap: 4px; nav a { padding: 0.3rem 0.6rem; } main { padding: 1rem; } }
+@media print { nav { display: none; } body { background: #fff; color: #000; } .card { border: 1px solid #ccc; } }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>InfraDocs</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="sites.html">Sites</a>
+                    <a href="devices.html">Devices</a>
+                    <a href="vlans.html">VLANs</a>
+                    <a href="subnets.html">Subnets</a>
+                    <a href="printers.html">Printers</a>
+                    <a href="vendors.html">Vendors</a>
+                    <a href="circuits.html">Circuits</a>
+                    <a href="change-log.html">Change Log</a>
+                    <a href="emergency.html">Emergency</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search infrastructure...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <main class="main">
+<div class="page-header">
+    <h2>VLANs</h2>
+    <p class="subtitle">Network VLAN configurations</p>
+</div>
+
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>VLAN ID</th>
+                <th>Name</th>
+                <th>Subnet</th>
+                <th>Gateway</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="vlan-mgmt">
+                <td class="mono"><strong>1</strong></td>
+                <td>Management</td>
+                <td class="mono">192.168.1.0/24</td>
+                <td class="mono">192.168.1.1</td>
+                <td>Network management VLAN</td>
+            </tr>
+            <tr id="vlan-servers">
+                <td class="mono"><strong>10</strong></td>
+                <td>Servers</td>
+                <td class="mono">192.168.10.0/24</td>
+                <td class="mono">192.168.10.1</td>
+                <td>Production servers</td>
+            </tr>
+            <tr id="vlan-workstations">
+                <td class="mono"><strong>20</strong></td>
+                <td>Workstations</td>
+                <td class="mono">192.168.20.0/24</td>
+                <td class="mono">192.168.20.1</td>
+                <td>End-user workstations</td>
+            </tr>
+            <tr id="vlan-printers">
+                <td class="mono"><strong>30</strong></td>
+                <td>Printers</td>
+                <td class="mono">192.168.30.0/24</td>
+                <td class="mono">192.168.30.1</td>
+                <td>Network printers</td>
+            </tr>
+            <tr id="vlan-guest">
+                <td class="mono"><strong>40</strong></td>
+                <td>Guest WiFi</td>
+                <td class="mono">192.168.40.0/24</td>
+                <td class="mono">192.168.40.1</td>
+                <td>Isolated guest wireless</td>
+            </tr>
+            <tr id="vlan-cameras">
+                <td class="mono"><strong>50</strong></td>
+                <td>Security Cameras</td>
+                <td class="mono">192.168.50.0/24</td>
+                <td class="mono">192.168.50.1</td>
+                <td>IP camera network, isolated</td>
+            </tr>
+            <tr id="vlan-voip">
+                <td class="mono"><strong>60</strong></td>
+                <td>VoIP</td>
+                <td class="mono">192.168.60.0/24</td>
+                <td class="mono">192.168.60.1</td>
+                <td>Voice over IP phones</td>
+            </tr>
+            <tr id="vlan-native">
+                <td class="mono"><strong>99</strong></td>
+                <td>Native</td>
+                <td class="mono"></td>
+                <td class="mono"></td>
+                <td>Untagged/native VLAN</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<section class="detail-section" id="detail-vlan-mgmt">
+    <h3>VLAN 1 — Management</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">1</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Management</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.1.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.1.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Network management VLAN</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-servers">
+    <h3>VLAN 10 — Servers</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">10</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Servers</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.10.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.10.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Production servers</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-workstations">
+    <h3>VLAN 20 — Workstations</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">20</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Workstations</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.20.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.20.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>End-user workstations</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-printers">
+    <h3>VLAN 30 — Printers</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">30</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Printers</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.30.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.30.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Network printers</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-guest">
+    <h3>VLAN 40 — Guest WiFi</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">40</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Guest WiFi</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.40.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.40.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Isolated guest wireless</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-cameras">
+    <h3>VLAN 50 — Security Cameras</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">50</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Security Cameras</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.50.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.50.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>IP camera network, isolated</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-voip">
+    <h3>VLAN 60 — VoIP</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">60</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>VoIP</span>
+        </div>
+        <div class="detail-item">
+            <label>Subnet:</label>
+            <span class="mono">192.168.60.0/24</span>
+        </div>
+        <div class="detail-item">
+            <label>Gateway:</label>
+            <span class="mono">192.168.60.1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Voice over IP phones</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-vlan-native">
+    <h3>VLAN 99 — Native</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>VLAN ID:</label>
+            <span class="mono">99</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>Native</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Untagged/native VLAN</p>
+    </div>
+</section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Generated by <a href="https://github.com/NexuFrame/infradocs" target="_blank">InfraDocs Generator</a> · <a href="mailto:support@nexuframe.com">support@nexuframe.com</a></p>
+                <p class="timestamp">Generated: 2026-05-26 15:28:23</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+  var index = [];
+  var searchBox = document.getElementById('search-box');
+  if (!searchBox) return;
+
+  fetch('../search_index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { index = data; })
+    .catch(function () {});
+
+  searchBox.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    var cards = document.querySelectorAll('[data-searchable]');
+    cards.forEach(function (card) {
+      var text = card.getAttribute('data-searchable').toLowerCase();
+      card.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+  });
+})();
+
+    </script>
+
+</body>
+</html>

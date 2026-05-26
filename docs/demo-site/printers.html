@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printers — IT Infrastructure Documentation</title>
+    <style>
+        :root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --accent: #4f8ef7;
+  --text: #e0e0e0;
+  --muted: #8892a4;
+  --border: #2a2a4a;
+  --success: #4caf50;
+  --warning: #ff9800;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; min-height: 100vh; }
+nav { width: 220px; background: var(--surface); padding: 1.5rem 1rem; flex-shrink: 0; border-right: 1px solid var(--border); }
+nav a { display: block; padding: 0.4rem 0.6rem; color: var(--muted); text-decoration: none; border-radius: 4px; margin-bottom: 2px; font-size: 0.9rem; }
+nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+main { flex: 1; padding: 2rem; overflow-y: auto; }
+h1 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--accent); }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.8rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.2rem; }
+.detail-table { width: 100%; border-collapse: collapse; }
+.detail-table th { width: 160px; text-align: left; padding: 0.5rem 0.8rem; color: var(--muted); font-weight: 500; }
+.detail-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+.data-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; }
+.data-table th { background: var(--border); padding: 0.7rem 1rem; text-align: left; font-size: 0.85rem; color: var(--muted); }
+.data-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.data-table tr:hover td { background: rgba(79,142,247,0.05); }
+#search-box { width: 100%; padding: 0.6rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; margin-bottom: 1.2rem; }
+#search-box:focus { outline: none; border-color: var(--accent); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; background: var(--border); color: var(--muted); }
+@media (max-width: 768px) { body { flex-direction: column; } nav { width: 100%; padding: 0.8rem; display: flex; flex-wrap: wrap; gap: 4px; nav a { padding: 0.3rem 0.6rem; } main { padding: 1rem; } }
+@media print { nav { display: none; } body { background: #fff; color: #000; } .card { border: 1px solid #ccc; } }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>InfraDocs</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="sites.html">Sites</a>
+                    <a href="devices.html">Devices</a>
+                    <a href="vlans.html">VLANs</a>
+                    <a href="subnets.html">Subnets</a>
+                    <a href="printers.html">Printers</a>
+                    <a href="vendors.html">Vendors</a>
+                    <a href="circuits.html">Circuits</a>
+                    <a href="change-log.html">Change Log</a>
+                    <a href="emergency.html">Emergency</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search infrastructure...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <main class="main">
+<div class="page-header">
+    <h2>Printers</h2>
+    <p class="subtitle">Network printers and print queues</p>
+</div>
+
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Location</th>
+                <th>Queue Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="prn-hq-finance">
+                <td><strong>prn-hq-finance</strong></td>
+                <td>HP LaserJet Enterprise M507dn</td>
+                <td class="mono">192.168.30.10</td>
+                <td>Finance Dept</td>
+                <td class="mono">prn-finance</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;online&lt;/span&gt;</td>
+            </tr>
+            <tr id="prn-hq-hr">
+                <td><strong>prn-hq-hr</strong></td>
+                <td>Brother HL-L9310CDW</td>
+                <td class="mono">192.168.30.11</td>
+                <td>HR Dept</td>
+                <td class="mono">prn-hr</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;online&lt;/span&gt;</td>
+            </tr>
+            <tr id="prn-branch1-main">
+                <td><strong>prn-branch1-main</strong></td>
+                <td>HP LaserJet Pro M404dn</td>
+                <td class="mono">10.1.1.30</td>
+                <td>Branch Office, Main Floor</td>
+                <td class="mono">prn-branch1</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;online&lt;/span&gt;</td>
+            </tr>
+            <tr id="prn-wh-shipping">
+                <td><strong>prn-wh-shipping</strong></td>
+                <td>Zebra ZT411</td>
+                <td class="mono">172.16.30.10</td>
+                <td>Warehouse Shipping Desk</td>
+                <td class="mono">prn-shipping</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;online&lt;/span&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<section class="detail-section" id="detail-prn-hq-finance">
+    <h3>prn-hq-finance</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">prn-hq-finance</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>prn-hq-finance</span>
+        </div>
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>HP LaserJet Enterprise M507dn</span>
+        </div>
+        <div class="detail-item">
+            <label>IP Address:</label>
+            <span class="mono">192.168.30.10</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>Finance Dept</span>
+        </div>
+        <div class="detail-item">
+            <label>Queue Name:</label>
+            <span class="mono">prn-finance</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p><strong>Driver Notes:</strong> Use HP UPD PCL6 driver</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-prn-hq-hr">
+    <h3>prn-hq-hr</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">prn-hq-hr</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>prn-hq-hr</span>
+        </div>
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>Brother HL-L9310CDW</span>
+        </div>
+        <div class="detail-item">
+            <label>IP Address:</label>
+            <span class="mono">192.168.30.11</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>HR Dept</span>
+        </div>
+        <div class="detail-item">
+            <label>Queue Name:</label>
+            <span class="mono">prn-hr</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p><strong>Driver Notes:</strong> Use Brother Universal driver</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-prn-branch1-main">
+    <h3>prn-branch1-main</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">prn-branch1-main</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>prn-branch1-main</span>
+        </div>
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>HP LaserJet Pro M404dn</span>
+        </div>
+        <div class="detail-item">
+            <label>IP Address:</label>
+            <span class="mono">10.1.1.30</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>Branch Office, Main Floor</span>
+        </div>
+        <div class="detail-item">
+            <label>Queue Name:</label>
+            <span class="mono">prn-branch1</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p><strong>Driver Notes:</strong> Use HP UPD PCL6 driver</p>
+    </div>
+</section>
+<section class="detail-section" id="detail-prn-wh-shipping">
+    <h3>prn-wh-shipping</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">prn-wh-shipping</span>
+        </div>
+        <div class="detail-item">
+            <label>Name:</label>
+            <span>prn-wh-shipping</span>
+        </div>
+        <div class="detail-item">
+            <label>Type:</label>
+            <span>Zebra ZT411</span>
+        </div>
+        <div class="detail-item">
+            <label>IP Address:</label>
+            <span class="mono">172.16.30.10</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>Warehouse Shipping Desk</span>
+        </div>
+        <div class="detail-item">
+            <label>Queue Name:</label>
+            <span class="mono">prn-shipping</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p><strong>Driver Notes:</strong> ZDesigner driver, 4x6 label media</p>
+    </div>
+</section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Generated by <a href="https://github.com/NexuFrame/infradocs" target="_blank">InfraDocs Generator</a> · <a href="mailto:support@nexuframe.com">support@nexuframe.com</a></p>
+                <p class="timestamp">Generated: 2026-05-26 15:28:23</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+  var index = [];
+  var searchBox = document.getElementById('search-box');
+  if (!searchBox) return;
+
+  fetch('../search_index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { index = data; })
+    .catch(function () {});
+
+  searchBox.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    var cards = document.querySelectorAll('[data-searchable]');
+    cards.forEach(function (card) {
+      var text = card.getAttribute('data-searchable').toLowerCase();
+      card.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+  });
+})();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sites - IT Infrastructure Documentation</title>
+    <style>
+        :root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --accent: #4f8ef7;
+  --text: #e0e0e0;
+  --muted: #8892a4;
+  --border: #2a2a4a;
+  --success: #4caf50;
+  --warning: #ff9800;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; min-height: 100vh; }
+nav { width: 220px; background: var(--surface); padding: 1.5rem 1rem; flex-shrink: 0; border-right: 1px solid var(--border); }
+nav a { display: block; padding: 0.4rem 0.6rem; color: var(--muted); text-decoration: none; border-radius: 4px; margin-bottom: 2px; font-size: 0.9rem; }
+nav a:hover, nav a.active { background: var(--accent); color: #fff; }
+main { flex: 1; padding: 2rem; overflow-y: auto; }
+h1 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--accent); }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.8rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.2rem; }
+.detail-table { width: 100%; border-collapse: collapse; }
+.detail-table th { width: 160px; text-align: left; padding: 0.5rem 0.8rem; color: var(--muted); font-weight: 500; }
+.detail-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+.data-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; }
+.data-table th { background: var(--border); padding: 0.7rem 1rem; text-align: left; font-size: 0.85rem; color: var(--muted); }
+.data-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.data-table tr:hover td { background: rgba(79,142,247,0.05); }
+#search-box { width: 100%; padding: 0.6rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; margin-bottom: 1.2rem; }
+#search-box:focus { outline: none; border-color: var(--accent); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; background: var(--border); color: var(--muted); }
+@media (max-width: 768px) { body { flex-direction: column; } nav { width: 100%; padding: 0.8rem; display: flex; flex-wrap: wrap; gap: 4px; nav a { padding: 0.3rem 0.6rem; } main { padding: 1rem; } }
+@media print { nav { display: none; } body { background: #fff; color: #000; } .card { border: 1px solid #ccc; } }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>InfraDocs</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="sites.html">Sites</a>
+                    <a href="devices.html">Devices</a>
+                    <a href="vlans.html">VLANs</a>
+                    <a href="subnets.html">Subnets</a>
+                    <a href="printers.html">Printers</a>
+                    <a href="vendors.html">Vendors</a>
+                    <a href="circuits.html">Circuits</a>
+                    <a href="change-log.html">Change Log</a>
+                    <a href="emergency.html">Emergency</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search infrastructure...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <main class="main">
+<div class="page-header">
+    <h2>Sites</h2>
+    <p class="subtitle">Physical locations and facilities</p>
+</div>
+
+<div class="table-container">
+    <table class="data-table sortable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="hq">
+                <td class="mono">hq</td>
+                <td><strong>Headquarters</strong></td>
+                <td>123 Main St, Anytown, US</td>
+                <td>Main corporate headquarters</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;active&lt;/span&gt;</td>
+            </tr>
+            <tr id="branch1">
+                <td class="mono">branch1</td>
+                <td><strong>Branch Office 1</strong></td>
+                <td>456 Oak Ave, Othertown, US</td>
+                <td>Regional branch office</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;active&lt;/span&gt;</td>
+            </tr>
+            <tr id="warehouse">
+                <td class="mono">warehouse</td>
+                <td><strong>Warehouse</strong></td>
+                <td>789 Industrial Blvd, Anytown, US</td>
+                <td>Distribution warehouse</td>
+                <td>&lt;span class=&#34;badge badge-success&#34;&gt;active&lt;/span&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Site Details -->
+<section class="detail-section" id="detail-hq">
+    <h3>Headquarters</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">hq</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>123 Main St, Anytown, US</span>
+        </div>
+        <div class="detail-item">
+            <label>Address:</label>
+            <span>123 Main St, Anytown, US</span>
+        </div>
+        <div class="detail-item">
+            <label>Status:</label>
+            <span>&lt;span class=&#34;badge badge-success&#34;&gt;active&lt;/span&gt;</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Main corporate headquarters</p>
+    </div>
+    
+    <!-- Devices at this site -->
+    
+    <h4>Devices at this Site</h4>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>sw-hq-core</td>
+                <td>core-switch</td>
+                <td class="mono">192.168.10.1</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>sw-hq-access1</td>
+                <td>access-switch</td>
+                <td class="mono">192.168.1.2</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>srv-hq-dc1</td>
+                <td>server</td>
+                <td class="mono">192.168.10.10</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>srv-hq-file</td>
+                <td>server</td>
+                <td class="mono">192.168.10.11</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>wks-hq-001</td>
+                <td>workstation</td>
+                <td class="mono">192.168.20.101</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>wks-hq-002</td>
+                <td>workstation</td>
+                <td class="mono">192.168.20.102</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>prx-hq-1</td>
+                <td>proxy</td>
+                <td class="mono">192.168.10.20</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section class="detail-section" id="detail-branch1">
+    <h3>Branch Office 1</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">branch1</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>456 Oak Ave, Othertown, US</span>
+        </div>
+        <div class="detail-item">
+            <label>Address:</label>
+            <span>456 Oak Ave, Othertown, US</span>
+        </div>
+        <div class="detail-item">
+            <label>Status:</label>
+            <span>&lt;span class=&#34;badge badge-success&#34;&gt;active&lt;/span&gt;</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Regional branch office</p>
+    </div>
+    
+    <!-- Devices at this site -->
+    
+    <h4>Devices at this Site</h4>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>rtr-branch1</td>
+                <td>router</td>
+                <td class="mono">10.1.1.1</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>sw-branch1-access</td>
+                <td>access-switch</td>
+                <td class="mono">10.1.1.2</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>wap-branch1-1</td>
+                <td>wireless-ap</td>
+                <td class="mono">10.1.1.10</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section class="detail-section" id="detail-warehouse">
+    <h3>Warehouse</h3>
+    <div class="detail-grid">
+        <div class="detail-item">
+            <label>ID:</label>
+            <span class="mono">warehouse</span>
+        </div>
+        <div class="detail-item">
+            <label>Location:</label>
+            <span>789 Industrial Blvd, Anytown, US</span>
+        </div>
+        <div class="detail-item">
+            <label>Address:</label>
+            <span>789 Industrial Blvd, Anytown, US</span>
+        </div>
+        <div class="detail-item">
+            <label>Status:</label>
+            <span>&lt;span class=&#34;badge badge-success&#34;&gt;active&lt;/span&gt;</span>
+        </div>
+    </div>
+    <div class="detail-description">
+        <p>Distribution warehouse</p>
+    </div>
+    
+    <!-- Devices at this site -->
+    
+    <h4>Devices at this Site</h4>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>srv-wh-nas</td>
+                <td>nas</td>
+                <td class="mono">172.16.0.10</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+            <tr>
+                <td>cam-wh-01</td>
+                <td>ip-camera</td>
+                <td class="mono">172.16.50.1</td>
+                <td>&lt;span class=&#34;badge badge-secondary&#34;&gt;Unknown&lt;/span&gt;</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Generated by <a href="https://github.com/NexuFrame/infradocs" target="_blank">InfraDocs Generator</a> · <a href="mailto:support@nexuframe.com">support@nexuframe.com</a></p>
+                <p class="timestamp">Generated: 2026-05-26 15:28:23</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+  var index = [];
+  var searchBox = document.getElementById('search-box');
+  if (!searchBox) return;
+
+  fetch('../search_index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { index = data; })
+    .catch(function () {});
+
+  searchBox.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    var cards = document.querySelectorAll('[data-searchable]');
+    cards.forEach(function (card) {
+      var text = card.getAttribute('data-searchable').toLowerCase();
+      card.style.display = (!q || text.includes(q)) ? '' : 'none';
+    });
+  });
+})();
+
+    </script>
+
+</body>
+</html>
