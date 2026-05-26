@@ -1,0 +1,27 @@
+name: Feature Request
+description: Suggest a new feature for InfraDocs Generator
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the feature you'd like to see
+      placeholder: What would you like InfraDocs to do?
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: How would this feature help you?
+      placeholder: Describe your workflow and how this fits in
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Have you considered any alternatives?
+      placeholder: How do you solve this today?
