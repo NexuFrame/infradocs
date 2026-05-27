@@ -25,6 +25,45 @@ app = typer.Typer(
 console = Console()
 
 
+def _check_license_nudge() -> None:
+    """Print a subtle license nudge on first run and every 50th run."""
+    cache_dir = Path.home() / ".cache" / "infradocs"
+    counter_file = cache_dir / ".runs"
+
+    # Read current count
+    runs = 0
+    if counter_file.exists():
+        try:
+            runs = int(counter_file.read_text().strip())
+        except (ValueError, OSError):
+            runs = 0
+
+    runs += 1
+
+    # Write updated count
+    try:
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        counter_file.write_text(str(runs))
+    except OSError:
+        pass  # Silently ignore cache write failures
+
+    # Nudge on first run and every 50th
+    if runs == 1 or runs % 50 == 0:
+        console.print(
+            "[dim]InfraDocs is free for personal use. "
+            "Using it commercially? Buy a license: "
+            "https://nexuframe.com/pricing[/dim]"
+        )
+
+
+@app.callback(invoke_without_command=True)
+def _infradocs_callback(ctx: typer.Context) -> None:
+    """Callback that runs on every CLI invocation."""
+    if ctx.invoked_subcommand is not None:
+        # The actual command handler just ran; show the nudge now
+        _check_license_nudge()
+
+
 @app.command()
 def version() -> None:
     """Show version information."""
