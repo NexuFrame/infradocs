@@ -162,3 +162,11 @@ The MIT license covers the source code. Commercial usage is governed by the [EUL
 ---
 
 Made with ❤️ by [NexuFrame](https://github.com/NexuFrame)
+
+## 🐛 Issues & Feedback
+
+Found a bug or have a feature idea? We'd love to hear from you!
+
+→ **[Open an Issue](https://github.com/NexuFrame/infradocs/issues/new/choose)**
+
+We use simple, human-friendly templates — just describe what's going on and we'll take it from there.
