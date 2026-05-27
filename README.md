@@ -25,6 +25,21 @@ infradocs build --input sample-data --output output/site
 # Open output/site/index.html in your browser
 ```
 
+
+## 📜 Licensing
+
+This project is dual-licensed:
+
+- **[MIT License](LICENSE)** — Free for non-commercial use, personal projects, and evaluation.
+- **[Commercial License](LICENSE-COMMERCIAL.md)** — Required for business use. Three tiers:
+  - **Personal** ($19) — Single IT admin, internal use only
+  - **Consultant** ($49) — Client-facing, up to 5 engagements/year
+  - **MSP / White-label** ($99) — Unlimited clients, rebrand output
+
+**The code is open source. You're paying for the commercial license and priority email support.** No DRM, no activation keys, no phone-home. Honor-based.
+
+[Buy a license →](https://nexuframe.com/pricing) | [Read the EULA](EULA.md)
+
 ## Features
 
 - **Multiple Input Formats** — Reads YAML, JSON, and CSV files
