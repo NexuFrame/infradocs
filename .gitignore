@@ -41,7 +41,10 @@ Thumbs.db
 output/
 *.html
 !templates/*.html
+!docs/demo-site/*.html
+!docs/demo-site/**/*.html
 site/
+htmlcov/
 
 # Testing
 .coverage
