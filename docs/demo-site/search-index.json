@@ -1,0 +1,373 @@
+[
+  {
+    "id": "hq",
+    "type": "site",
+    "title": "Headquarters",
+    "description": "Main corporate headquarters",
+    "location": "123 Main St, Anytown, US",
+    "url": "sites.html#hq"
+  },
+  {
+    "id": "branch1",
+    "type": "site",
+    "title": "Branch Office 1",
+    "description": "Regional branch office",
+    "location": "456 Oak Ave, Othertown, US",
+    "url": "sites.html#branch1"
+  },
+  {
+    "id": "warehouse",
+    "type": "site",
+    "title": "Warehouse",
+    "description": "Distribution warehouse",
+    "location": "789 Industrial Blvd, Anytown, US",
+    "url": "sites.html#warehouse"
+  },
+  {
+    "id": "sw-hq-core",
+    "type": "device",
+    "title": "sw-hq-core",
+    "description": "core-switch",
+    "ip_address": "192.168.10.1",
+    "mac_address": "aa:bb:cc:dd:ee:01",
+    "model": "",
+    "url": "devices.html#sw-hq-core"
+  },
+  {
+    "id": "sw-hq-access1",
+    "type": "device",
+    "title": "sw-hq-access1",
+    "description": "access-switch",
+    "ip_address": "192.168.1.2",
+    "mac_address": "aa:bb:cc:dd:ee:02",
+    "model": "",
+    "url": "devices.html#sw-hq-access1"
+  },
+  {
+    "id": "srv-hq-dc1",
+    "type": "device",
+    "title": "srv-hq-dc1",
+    "description": "server",
+    "ip_address": "192.168.10.10",
+    "mac_address": "aa:bb:cc:dd:ee:03",
+    "model": "",
+    "url": "devices.html#srv-hq-dc1"
+  },
+  {
+    "id": "srv-hq-file",
+    "type": "device",
+    "title": "srv-hq-file",
+    "description": "server",
+    "ip_address": "192.168.10.11",
+    "mac_address": "aa:bb:cc:dd:ee:04",
+    "model": "",
+    "url": "devices.html#srv-hq-file"
+  },
+  {
+    "id": "rtr-branch1",
+    "type": "device",
+    "title": "rtr-branch1",
+    "description": "router",
+    "ip_address": "10.1.1.1",
+    "mac_address": "aa:bb:cc:dd:ee:05",
+    "model": "",
+    "url": "devices.html#rtr-branch1"
+  },
+  {
+    "id": "sw-branch1-access",
+    "type": "device",
+    "title": "sw-branch1-access",
+    "description": "access-switch",
+    "ip_address": "10.1.1.2",
+    "mac_address": "aa:bb:cc:dd:ee:06",
+    "model": "",
+    "url": "devices.html#sw-branch1-access"
+  },
+  {
+    "id": "wap-branch1-1",
+    "type": "device",
+    "title": "wap-branch1-1",
+    "description": "wireless-ap",
+    "ip_address": "10.1.1.10",
+    "mac_address": "aa:bb:cc:dd:ee:07",
+    "model": "",
+    "url": "devices.html#wap-branch1-1"
+  },
+  {
+    "id": "srv-wh-nas",
+    "type": "device",
+    "title": "srv-wh-nas",
+    "description": "nas",
+    "ip_address": "172.16.0.10",
+    "mac_address": "aa:bb:cc:dd:ee:08",
+    "model": "",
+    "url": "devices.html#srv-wh-nas"
+  },
+  {
+    "id": "wks-hq-001",
+    "type": "device",
+    "title": "wks-hq-001",
+    "description": "workstation",
+    "ip_address": "192.168.20.101",
+    "mac_address": "aa:bb:cc:dd:ee:09",
+    "model": "",
+    "url": "devices.html#wks-hq-001"
+  },
+  {
+    "id": "wks-hq-002",
+    "type": "device",
+    "title": "wks-hq-002",
+    "description": "workstation",
+    "ip_address": "192.168.20.102",
+    "mac_address": "aa:bb:cc:dd:ee:10",
+    "model": "",
+    "url": "devices.html#wks-hq-002"
+  },
+  {
+    "id": "prx-hq-1",
+    "type": "device",
+    "title": "prx-hq-1",
+    "description": "proxy",
+    "ip_address": "192.168.10.20",
+    "mac_address": "aa:bb:cc:dd:ee:11",
+    "model": "",
+    "url": "devices.html#prx-hq-1"
+  },
+  {
+    "id": "cam-wh-01",
+    "type": "device",
+    "title": "cam-wh-01",
+    "description": "ip-camera",
+    "ip_address": "172.16.50.1",
+    "mac_address": "aa:bb:cc:dd:ee:12",
+    "model": "",
+    "url": "devices.html#cam-wh-01"
+  },
+  {
+    "id": "vlan-mgmt",
+    "type": "vlan",
+    "title": "VLAN 1 - Management",
+    "description": "Network management VLAN",
+    "url": "vlans.html#vlan-mgmt"
+  },
+  {
+    "id": "vlan-servers",
+    "type": "vlan",
+    "title": "VLAN 10 - Servers",
+    "description": "Production servers",
+    "url": "vlans.html#vlan-servers"
+  },
+  {
+    "id": "vlan-workstations",
+    "type": "vlan",
+    "title": "VLAN 20 - Workstations",
+    "description": "End-user workstations",
+    "url": "vlans.html#vlan-workstations"
+  },
+  {
+    "id": "vlan-printers",
+    "type": "vlan",
+    "title": "VLAN 30 - Printers",
+    "description": "Network printers",
+    "url": "vlans.html#vlan-printers"
+  },
+  {
+    "id": "vlan-guest",
+    "type": "vlan",
+    "title": "VLAN 40 - Guest WiFi",
+    "description": "Isolated guest wireless",
+    "url": "vlans.html#vlan-guest"
+  },
+  {
+    "id": "vlan-cameras",
+    "type": "vlan",
+    "title": "VLAN 50 - Security Cameras",
+    "description": "IP camera network, isolated",
+    "url": "vlans.html#vlan-cameras"
+  },
+  {
+    "id": "vlan-voip",
+    "type": "vlan",
+    "title": "VLAN 60 - VoIP",
+    "description": "Voice over IP phones",
+    "url": "vlans.html#vlan-voip"
+  },
+  {
+    "id": "vlan-native",
+    "type": "vlan",
+    "title": "VLAN 99 - Native",
+    "description": "Untagged/native VLAN",
+    "url": "vlans.html#vlan-native"
+  },
+  {
+    "id": "subnet-mgmt",
+    "type": "subnet",
+    "title": "Management Network",
+    "description": "192.168.1.0/24",
+    "cidr": "192.168.1.0/24",
+    "url": "subnets.html#subnet-mgmt"
+  },
+  {
+    "id": "subnet-servers",
+    "type": "subnet",
+    "title": "Server Farm",
+    "description": "192.168.10.0/24",
+    "cidr": "192.168.10.0/24",
+    "url": "subnets.html#subnet-servers"
+  },
+  {
+    "id": "subnet-workstations",
+    "type": "subnet",
+    "title": "Workstations",
+    "description": "192.168.20.0/24",
+    "cidr": "192.168.20.0/24",
+    "url": "subnets.html#subnet-workstations"
+  },
+  {
+    "id": "subnet-branch",
+    "type": "subnet",
+    "title": "Branch Office LAN",
+    "description": "10.1.1.0/24",
+    "cidr": "10.1.1.0/24",
+    "url": "subnets.html#subnet-branch"
+  },
+  {
+    "id": "subnet-warehouse",
+    "type": "subnet",
+    "title": "Warehouse Network",
+    "description": "172.16.0.0/24",
+    "cidr": "172.16.0.0/24",
+    "url": "subnets.html#subnet-warehouse"
+  },
+  {
+    "id": "prn-hq-finance",
+    "type": "printer",
+    "title": "prn-hq-finance",
+    "description": "Finance Dept",
+    "ip_address": "192.168.30.10",
+    "url": "printers.html#prn-hq-finance"
+  },
+  {
+    "id": "prn-hq-hr",
+    "type": "printer",
+    "title": "prn-hq-hr",
+    "description": "HR Dept",
+    "ip_address": "192.168.30.11",
+    "url": "printers.html#prn-hq-hr"
+  },
+  {
+    "id": "prn-branch1-main",
+    "type": "printer",
+    "title": "prn-branch1-main",
+    "description": "Branch Office, Main Floor",
+    "ip_address": "10.1.1.30",
+    "url": "printers.html#prn-branch1-main"
+  },
+  {
+    "id": "prn-wh-shipping",
+    "type": "printer",
+    "title": "prn-wh-shipping",
+    "description": "Warehouse Shipping Desk",
+    "ip_address": "172.16.30.10",
+    "url": "printers.html#prn-wh-shipping"
+  },
+  {
+    "id": "vendor-acme",
+    "type": "vendor",
+    "title": "Acme ISP",
+    "description": "",
+    "url": "vendors.html#vendor-acme"
+  },
+  {
+    "id": "vendor-techhw",
+    "type": "vendor",
+    "title": "TechHardware Reseller",
+    "description": "",
+    "url": "vendors.html#vendor-techhw"
+  },
+  {
+    "id": "vendor-cloudsoft",
+    "type": "vendor",
+    "title": "CloudSoft Licensing",
+    "description": "",
+    "url": "vendors.html#vendor-cloudsoft"
+  },
+  {
+    "id": "vendor-secureit",
+    "type": "vendor",
+    "title": "SecureIT Support",
+    "description": "",
+    "url": "vendors.html#vendor-secureit"
+  },
+  {
+    "id": "vendor-voiceplus",
+    "type": "vendor",
+    "title": "VoicePlus Telecom",
+    "description": "",
+    "url": "vendors.html#vendor-voiceplus"
+  },
+  {
+    "id": "circuit-primary",
+    "type": "circuit",
+    "title": "Primary Fiber WAN",
+    "description": "Acme ISP",
+    "provider": "Acme ISP",
+    "url": "circuits.html#circuit-primary"
+  },
+  {
+    "id": "circuit-backup",
+    "type": "circuit",
+    "title": "Backup Cable WAN",
+    "description": "CableLink",
+    "provider": "CableLink",
+    "url": "circuits.html#circuit-backup"
+  },
+  {
+    "id": "circuit-oob",
+    "type": "circuit",
+    "title": "Out-of-Band LTE",
+    "description": "MobileCo",
+    "provider": "MobileCo",
+    "url": "circuits.html#circuit-oob"
+  },
+  {
+    "id": "",
+    "type": "change_log",
+    "title": "Upgraded core switch IOS from 15.2(4) to 15.2(7)",
+    "description": "Upgraded core switch IOS from 15.2(4) to 15.2(7)",
+    "date": "2026-05-01",
+    "url": "change-log.html#"
+  },
+  {
+    "id": "",
+    "type": "change_log",
+    "title": "Added VLAN 60 for VoIP rollout",
+    "description": "Added VLAN 60 for VoIP rollout",
+    "date": "2026-04-15",
+    "url": "change-log.html#"
+  },
+  {
+    "id": "",
+    "type": "change_log",
+    "title": "Replaced failed UPS in warehouse rack",
+    "description": "Replaced failed UPS in warehouse rack",
+    "date": "2026-03-28",
+    "url": "change-log.html#"
+  },
+  {
+    "id": "",
+    "type": "change_log",
+    "title": "Deployed Squid proxy on prx-hq-1",
+    "description": "Deployed Squid proxy on prx-hq-1",
+    "date": "2026-03-10",
+    "url": "change-log.html#"
+  },
+  {
+    "id": "",
+    "type": "change_log",
+    "title": "Extended M365 licenses from 25 to 35 seats",
+    "description": "Extended M365 licenses from 25 to 35 seats",
+    "date": "2026-02-20",
+    "url": "change-log.html#"
+  }
+]

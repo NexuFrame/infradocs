@@ -53,12 +53,16 @@ class DataLoader:
             "change_log": [
                 "change-log.yaml",
                 "change-log.yml",
+                "change-log.csv",
                 "changelog.yaml",
                 "changelog.yml",
+                "changelog.csv",
             ],
             "emergency_procedures": [
                 "emergency-procedures.yaml",
                 "emergency-procedures.yml",
+                "emergency-contacts.yaml",
+                "emergency-contacts.yml",
                 "emergency.yaml",
                 "emergency.yml",
             ],
