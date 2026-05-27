@@ -1,19 +1,229 @@
-# End User License Agreement
+# InfraDocs End-User License Agreement (EULA)
 
-**InfraDocs Generator** — Copyright 2026 NexuFrame. All rights reserved.
+**Effective Date:** Date of purchase or download
+**Licensor:** NexuFrame (support@nexuframe.com)
+**Software:** InfraDocs
+**GitHub:** https://github.com/NexuFrame/infradocs
 
-## License Tiers
+**IMPORTANT — READ CAREFULLY:** By downloading, installing, copying, or otherwise using the Software, you ("Licensee" or "You") agree to be bound by the terms of this End-User License Agreement ("EULA"). If you do not agree to these terms, do not download, install, or use the Software.
 
-**Personal License ($19):** Single user, internal use only. No redistribution.
+---
 
-**Consultant License ($49):** Use for up to 5 client engagements per year. No redistribution of source.
+## 1. Acceptance
 
-**MSP/White-label License ($99):** Unlimited client use. You may rebrand the HTML output. No redistribution of source code.
+This EULA is a legally binding agreement between you and NexuFrame governing your use of InfraDocs and all related documentation, updates, and support materials (collectively, the "Software").
 
-## Restrictions
-- You may not resell or redistribute the source code.
-- You may not sublicense this software.
-- Reverse engineering is prohibited.
+By downloading, installing, accessing, or using the Software, you:
+- (a) Accept and agree to all terms and conditions of this EULA;
+- (b) Represent that you are at least 18 years of age and have the legal capacity to enter into this agreement;
+- (c) If acting on behalf of an entity, represent that you have authority to bind that entity.
 
-## Disclaimer
-THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+If you do not agree, you must immediately cease use and delete all copies of the Software.
+
+---
+
+## 2. Grant of License
+
+### 2.1 Open Source (MIT) License
+
+The core source code of InfraDocs is made publicly available under the MIT License, available at the GitHub repository: https://github.com/NexuFrame/infradocs. Under the MIT License, you are granted a perpetual, worldwide, non-exclusive, royalty-free license to:
+
+- Use, copy, modify, and distribute the Software for non-commercial, personal, and educational purposes.
+- View and contribute to the source code.
+
+### 2.2 Commercial License
+
+**Commercial use of InfraDocs requires purchase of a separate Commercial License.**
+
+"Commercial use" includes, but is not limited to:
+- Using InfraDocs to generate documentation for paying clients or as part of paid consulting engagements.
+- Using InfraDocs within a for-profit business to produce client deliverables.
+- Offering InfraDocs-generated documentation as a service or product.
+- Using InfraDocs as part of Managed Service Provider (MSP) operations.
+
+The terms governing commercial use are set forth in LICENSE-COMMERCIAL.md, which is incorporated into this EULA by reference. Commercial license tiers and corresponding rights are:
+
+| Tier | Price | Scope |
+|------|-------|-------|
+| **Personal** | $19 | 1 user, internal business use only |
+| **Consultant** | $49 | 1 user, up to 5 client engagements/year |
+| **MSP White-Label** | $99 | Unlimited clients, white-label/rebrand output |
+
+By purchasing a Commercial License, you additionally agree to the terms in LICENSE-COMMERCIAL.md. In the event of conflict between this EULA and LICENSE-COMMERCIAL.md, the Commercial License terms shall govern.
+
+---
+
+## 3. Usage Restrictions
+
+Regardless of license type, you agree NOT to:
+
+- **Resell or sublicense** the Software itself as a standalone product, service, or SaaS offering.
+- **Remove or obscure** any copyright, trademark, or proprietary notices from the Software source code.
+- **Reverse engineer, decompile, or disassemble** the Software (except to the extent expressly permitted by applicable law).
+- **Use the Software** in any manner that violates applicable laws, regulations, or third-party rights.
+- **Use the Software** to build a directly competing product or service.
+- **Distribute modified versions** of the Software under the "InfraDocs" name in a way that implies endorsement by NexuFrame.
+- **Circumvent license enforcement mechanisms**, if any.
+
+---
+
+## 4. Intellectual Property Rights
+
+### 4.1 NexuFrame Ownership
+
+NexuFrame retains all right, title, and interest in and to the Software, including but not limited to:
+- All source code, binaries, libraries, and algorithms.
+- All trademarks, trade names, logos, and branding ("InfraDocs", "NexuFrame").
+- All documentation, user guides, and related materials.
+- All modifications, enhancements, and derivative works of the Software (unless contributed under open-source terms via GitHub).
+
+Except for the limited licenses expressly granted herein, nothing in this EULA transfers any ownership or intellectual property rights to you.
+
+### 4.2 Your Output
+
+You retain full ownership of all infrastructure documentation, diagrams, reports, network topology maps, and other output generated by you using the Software ("Output").
+
+NexuFrame claims no ownership over your Output, your infrastructure data, or your configuration files. The honor-based license model respects that the value is in your expertise — the Software is the tool.
+
+### 4.3 Contributions
+
+Any code contributions submitted to the InfraDocs GitHub repository are governed by the repository's contribution guidelines and are licensed under the MIT License. By submitting contributions, you grant NexuFrame a perpetual, worldwide, non-exclusive license to use, modify, and distribute your contributions as part of the Software.
+
+---
+
+## 5. No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+
+- WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
+- WARRANTIES THAT THE SOFTWARE WILL MEET YOUR REQUIREMENTS, BE ERROR-FREE, UNINTERRUPTED, OR SECURE.
+- WARRANTIES REGARDING THE ACCURACY, COMPLETENESS, OR RELIABILITY OF GENERATED OUTPUT.
+
+You acknowledge that infrastructure documentation generated by the Software is intended as a starting point and should be reviewed and validated by a qualified professional before use in production or client-facing environments. NexuFrame is not responsible for errors, omissions, or misconfigurations in generated Output.
+
+---
+
+## 6. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:
+
+- **No Indirect Damages:** NexuFrame shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, including but not limited to lost profits, lost revenue, lost data, business interruption, or damage to reputation, arising out of or related to this EULA or the use of or inability to use the Software.
+
+- **Cap on Liability:** NexuFrame's total aggregate liability for any claims arising under this EULA shall not exceed the greater of: (a) the amount you actually paid for the Software license during the twelve (12) months preceding the claim, or (b) fifty United States dollars ($50.00) if you are using the Software under the free MIT License.
+
+- **Basis of Bargain:** You acknowledge that these limitations of liability are a material basis of the bargain and that NexuFrame would not provide the Software without them.
+
+Some jurisdictions do not allow limitations on implied warranties or exclusion of certain damages. If these laws apply, some or all of the above disclaimers may not apply to you.
+
+---
+
+## 7. Support and Updates
+
+### 7.1 Commercial License Support
+
+Support and update entitlements are defined in LICENSE-COMMERCIAL.md and vary by tier:
+
+- **Personal:** Email support, best-effort response.
+- **Consultant:** Priority email support, response within 2 business days.
+- **MSP:** Priority support with dedicated channel, response within 1 business day.
+
+### 7.2 MIT License Users
+
+Users of the Software solely under the MIT License receive no guaranteed support. Community support may be available through GitHub Issues and Discussions at the discretion of NexuFrame.
+
+### 7.3 Updates
+
+NexuFrame may, at its sole discretion, release updates, patches, bug fixes, or new versions of the Software. Commercial license holders are entitled to updates released during their active support period. No obligation exists to provide updates indefinitely, and NexuFrame may discontinue the Software at any time.
+
+---
+
+## 8. Termination
+
+### 8.1 Termination by You
+
+You may terminate this EULA at any time by permanently deleting all copies of the Software in your possession or control.
+
+### 8.2 Termination by NexuFrame
+
+NexuFrame may terminate this EULA and your license immediately if you:
+- Breach any material term of this EULA and fail to cure within thirty (30) days of written notice.
+- Violate the intellectual property rights of NexuFrame.
+- Use the Software in violation of applicable law.
+
+### 8.3 Effect of Termination
+
+Upon termination:
+- All rights granted under this EULA immediately cease.
+- You must permanently delete or destroy all copies of the Software.
+- You may retain previously generated Output.
+- Termination does not relieve you of any payment obligations.
+- No refund will be issued for termination due to breach.
+
+Sections 4 (Intellectual Property Rights), 5 (No Warranty), 6 (Limitation of Liability), 9 (Refund Policy), 10 (Governing Law), and this Section 8 shall survive termination.
+
+---
+
+## 9. Refund Policy
+
+NexuFrame offers a **14-day money-back guarantee** on all Commercial License purchases.
+
+If you are not satisfied with the Software for any reason, you may request a full refund within fourteen (14) calendar days of purchase by emailing support@nexuframe.com with your purchase receipt or order number.
+
+Upon refund:
+- Your Commercial License is immediately revoked.
+- You must delete all copies of the Software.
+- You may retain any Output generated during the trial period.
+- The honor-based model trusts that you will cease commercial use — this is not enforced through technical restrictions.
+
+Refunds are limited to one per customer. Subsequent purchases by the same customer are final and non-refundable.
+
+---
+
+## 10. Governing Law and Dispute Resolution
+
+### 10.1 Governing Law
+
+This EULA shall be governed by and construed in accordance with the laws of the State of Delaware, United States of America, without regard to conflict of law principles. The United Nations Convention on Contracts for the International Sale of Goods does not apply.
+
+### 10.2 Dispute Resolution
+
+Any dispute, claim, or controversy arising out of or relating to this EULA shall first be attempted to be resolved through good-faith negotiation. If the parties cannot resolve the dispute within thirty (30) days, either party may pursue remedies in the state or federal courts located in Delaware, to whose exclusive jurisdiction the parties consent.
+
+### 10.3 Injunctive Relief
+
+Notwithstanding the foregoing, NexuFrame may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent or restrain unauthorized use, disclosure, or infringement of its intellectual property rights.
+
+---
+
+## 11. General Provisions
+
+### 11.1 Entire Agreement
+
+This EULA, together with LICENSE-COMMERCIAL.md (if applicable), constitutes the entire agreement between you and NexuFrame concerning the Software and supersedes all prior agreements, representations, and understandings.
+
+### 11.2 Severability
+
+If any provision of this EULA is held to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect, and the invalid provision shall be modified to the minimum extent necessary to make it enforceable.
+
+### 11.3 No Waiver
+
+NexuFrame's failure to enforce any provision of this EULA shall not constitute a waiver of that provision or the right to enforce it at a later time.
+
+### 11.4 Assignment
+
+You may not assign or transfer this EULA or any rights granted herein without NexuFrame's prior written consent. NexuFrame may assign this EULA without restriction.
+
+### 11.5 Relationship of Parties
+
+Nothing in this EULA creates a partnership, joint venture, agency, or employment relationship between the parties.
+
+### 11.6 Contact
+
+For questions about this EULA, license compliance, or to report violations:
+
+- **Email:** support@nexuframe.com
+- **GitHub:** https://github.com/NexuFrame/infradocs
+
+---
+
+**BY DOWNLOADING, INSTALLING, OR USING INFRADOCS, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREE TO BE BOUND BY THE TERMS OF THIS EULA.**
